@@ -1,5 +1,5 @@
-import numeral from 'numeral';
-import moment from 'moment';
+import numeral from 'numeral'
+import moment from 'moment'
 
 numeral.register('locale', 'es', {
   delimiters: {
@@ -13,20 +13,20 @@ numeral.register('locale', 'es', {
     trillion: 't',
   },
   ordinal: function(number) {
-    const b = number % 10;
+    const b = number % 10
     return b === 1 || b === 3
       ? 'er'
       : b === 2
           ? 'do'
-          : b === 7 || b === 0 ? 'mo' : b === 8 ? 'vo' : b === 9 ? 'no' : 'to';
+          : b === 7 || b === 0 ? 'mo' : b === 8 ? 'vo' : b === 9 ? 'no' : 'to'
   },
   currency: {
     symbol: '$',
   },
-});
+})
 
-moment.locale('es');
-numeral.locale('es');
+moment.locale('es')
+numeral.locale('es')
 
-global.numeral = numeral;
-global.moment = moment;
+global.numeral = numeral
+global.moment = moment

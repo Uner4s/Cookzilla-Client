@@ -1,23 +1,23 @@
-import React from 'react';
-import Translate from 'App/i18n';
-import translate from 'App/i18n/translate';
-import { Form, Field } from 'simple-react-form';
-import Text from './Text';
-import Button from 'orionsoft-parts/lib/components/Button';
-import styles from './styles.css';
-import autobind from 'autobind-decorator';
-import { loginWithPassword } from 'meteor-apollo-accounts';
-import TOS from './TOS';
+import React from 'react'
+import Translate from 'App/i18n'
+import translate from 'App/i18n/translate'
+import { Form, Field } from 'simple-react-form'
+import Text from './Text'
+import Button from 'orionsoft-parts/lib/components/Button'
+import styles from './styles.css'
+import autobind from 'autobind-decorator'
+import { loginWithPassword } from 'meteor-apollo-accounts'
+import TOS from './TOS'
 // import Social from './Social'
-import { withApollo } from 'react-apollo';
+import { withApollo } from 'react-apollo'
 import loginWithTwoFactor
-  from 'orionsoft-parts/lib/decorators/loginWithTwoFactor';
-import { storeLoginToken } from 'meteor-apollo-accounts/client/store';
+  from 'orionsoft-parts/lib/decorators/loginWithTwoFactor'
+import { storeLoginToken } from 'meteor-apollo-accounts/client/store'
 
 @withApollo
 @loginWithTwoFactor
 export default class Login extends React.Component {
-  state = {};
+  state = {}
 
   static propTypes = {
     setLoading: React.PropTypes.func,
@@ -26,61 +26,61 @@ export default class Login extends React.Component {
     isLoading: React.PropTypes.bool,
     client: React.PropTypes.object,
     loginWithTwoFactor: React.PropTypes.func,
-  };
+  }
 
-  state = {};
+  state = {}
 
   @autobind async loginWithTwoFactor() {
-    this.props.setLoading(true);
-    this.props.setError(null);
+    this.props.setLoading(true)
+    this.props.setError(null)
     try {
       const { id, token, tokenExpires } = await this.props.loginWithTwoFactor(
         this.state
-      );
-      await storeLoginToken(id, token, new Date(tokenExpires));
-      this.props.onSuccess();
+      )
+      await storeLoginToken(id, token, new Date(tokenExpires))
+      this.props.onSuccess()
     } catch (error) {
-      console.log('Error loggin in with two factor', error);
-      this.props.setError(error.message);
+      console.log('Error loggin in with two factor', error)
+      this.props.setError(error.message)
     }
-    this.props.setLoading(false);
+    this.props.setLoading(false)
   }
 
   @autobind async login() {
-    if (this.state.hasTwoFactor) return this.loginWithTwoFactor();
-    this.props.setLoading(true);
-    this.props.setError(null);
+    if (this.state.hasTwoFactor) return this.loginWithTwoFactor()
+    this.props.setLoading(true)
+    this.props.setError(null)
     try {
-      await loginWithPassword(this.state, this.props.client);
-      this.props.onSuccess();
+      await loginWithPassword(this.state, this.props.client)
+      this.props.onSuccess()
     } catch (error) {
       if (
         error.message ===
         'GraphQL error: User needs two factor auth code [need-two-factor]'
       ) {
-        this.setState({ hasTwoFactor: true });
+        this.setState({ hasTwoFactor: true })
       } else {
-        console.log('Error loggin in', error);
-        this.props.setError(error.message);
+        console.log('Error loggin in', error)
+        this.props.setError(error.message)
       }
-      this.props.setLoading(false);
+      this.props.setLoading(false)
     }
   }
 
   @autobind handleEmailKey(event) {
     if (event.charCode === 13 || event.keyCode === 13) {
-      this.refs.password.refs.input.refs.input.focus();
+      this.refs.password.refs.input.refs.input.focus()
     }
   }
 
   @autobind handlePasswordKey(event) {
     if (event.charCode === 13 || event.keyCode === 13) {
-      this.login();
+      this.login()
     }
   }
 
   canLogin() {
-    return this.state.email && this.state.password;
+    return this.state.email && this.state.password
   }
 
   renderButtons() {
@@ -96,11 +96,11 @@ export default class Login extends React.Component {
           <Translate tr="auth.pages.login" />
         </Button>
       </div>
-    );
+    )
   }
 
   renderTwoFactor() {
-    if (!this.state.hasTwoFactor) return;
+    if (!this.state.hasTwoFactor) return
     return (
       <div>
         <br />
@@ -112,7 +112,7 @@ export default class Login extends React.Component {
           onKeyPress={this.handlePasswordKey}
         />
       </div>
-    );
+    )
   }
 
   render() {
@@ -145,6 +145,6 @@ export default class Login extends React.Component {
         <br />
         <TOS />
       </div>
-    );
+    )
   }
 }

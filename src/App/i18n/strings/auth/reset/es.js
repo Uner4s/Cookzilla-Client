@@ -4,4 +4,4 @@ export default {
   confirm: 'Confirmar contraseña',
   doesntMatch: 'Las contraseñas no coinciden',
   setPassword: 'Guardar contraseña',
-};
+}

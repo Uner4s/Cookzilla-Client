@@ -1,5 +1,5 @@
-import React from 'react';
-import styles from './styles.css';
+import React from 'react'
+import styles from './styles.css'
 
 export default class Text extends React.Component {
   static propTypes = {
@@ -8,11 +8,11 @@ export default class Text extends React.Component {
     fieldType: React.PropTypes.string,
     passProps: React.PropTypes.object,
     placeholder: React.PropTypes.node,
-  };
+  }
 
   static defaultProps = {
     fieldType: 'text',
-  };
+  }
 
   render() {
     return (
@@ -27,6 +27,6 @@ export default class Text extends React.Component {
           {...this.props.passProps}
         />
       </div>
-    );
+    )
   }
 }

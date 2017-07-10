@@ -1,15 +1,15 @@
-import React from 'react';
-import FacebookLogin from 'react-facebook-login';
-import autobind from 'autobind-decorator';
-import GoogleLogin from 'react-google-login';
+import React from 'react'
+import FacebookLogin from 'react-facebook-login'
+import autobind from 'autobind-decorator'
+import GoogleLogin from 'react-google-login'
 import {
   loginWithFacebook,
   loginWithGoogle,
   loginWithLinkedIn,
-} from 'meteor-apollo-accounts';
-import styles from './styles.css';
-import LinkedIn from 'react-linkedin-login';
-import { withApollo } from 'react-apollo';
+} from 'meteor-apollo-accounts'
+import styles from './styles.css'
+import LinkedIn from 'react-linkedin-login'
+import { withApollo } from 'react-apollo'
 
 @withApollo
 export default class Social extends React.Component {
@@ -18,56 +18,56 @@ export default class Social extends React.Component {
     setError: React.PropTypes.func,
     onSuccess: React.PropTypes.func,
     client: React.PropTypes.object,
-  };
+  }
 
   @autobind start() {
-    this.props.setLoading(true);
-    this.props.setError(null);
+    this.props.setLoading(true)
+    this.props.setError(null)
   }
 
   @autobind async callbackFacebook({ accessToken }) {
-    if (!accessToken) return;
+    if (!accessToken) return
     try {
-      await loginWithFacebook({ accessToken }, this.props.client);
-      this.props.onSuccess();
+      await loginWithFacebook({ accessToken }, this.props.client)
+      this.props.onSuccess()
     } catch (error) {
-      console.log('error', error);
-      this.props.setError(error.message);
-      this.props.setLoading(false);
+      console.log('error', error)
+      this.props.setError(error.message)
+      this.props.setLoading(false)
     }
   }
 
   @autobind async callbackLinkedIn({ code, redirectUri }) {
-    if (!code) return;
+    if (!code) return
     try {
-      this.props.setLoading(true);
-      await loginWithLinkedIn({ code, redirectUri }, this.props.client);
-      this.props.onSuccess();
+      this.props.setLoading(true)
+      await loginWithLinkedIn({ code, redirectUri }, this.props.client)
+      this.props.onSuccess()
     } catch (error) {
-      console.log('error', error);
-      this.props.setError(error.message);
-      this.props.setLoading(false);
+      console.log('error', error)
+      this.props.setError(error.message)
+      this.props.setLoading(false)
     }
   }
 
   @autobind async successGoogle({ accessToken }) {
-    if (!accessToken) return;
+    if (!accessToken) return
     try {
-      this.props.setLoading(true);
-      this.props.setError(null);
-      await loginWithGoogle({ accessToken }, this.props.client);
-      this.props.onSuccess();
+      this.props.setLoading(true)
+      this.props.setError(null)
+      await loginWithGoogle({ accessToken }, this.props.client)
+      this.props.onSuccess()
     } catch (error) {
-      console.log('error with google', error);
-      this.props.setError(error.message);
-      this.props.setLoading(false);
+      console.log('error with google', error)
+      this.props.setError(error.message)
+      this.props.setLoading(false)
     }
   }
 
   @autobind failureGoogle(error) {
-    console.log('error with google', error);
-    this.props.setError(error.message);
-    this.props.setLoading(false);
+    console.log('error with google', error)
+    this.props.setError(error.message)
+    this.props.setLoading(false)
   }
 
   render() {
@@ -96,6 +96,6 @@ export default class Social extends React.Component {
           text="LinkedIn"
         />
       </div>
-    );
+    )
   }
 }

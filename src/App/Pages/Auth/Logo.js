@@ -1,8 +1,8 @@
-import React from 'react';
-import styles from './styles.css';
+import React from 'react'
+import styles from './styles.css'
 
 export default class Logo extends React.Component {
-  static propTypes = {};
+  static propTypes = {}
 
   render() {
     return (
@@ -12,6 +12,6 @@ export default class Logo extends React.Component {
           src="https://s3.amazonaws.com/orionsoft-assets/logo-full.png"
         />
       </div>
-    );
+    )
   }
 }

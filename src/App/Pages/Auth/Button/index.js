@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router';
-import withoutLink from './withoutLink';
+import React from 'react'
+import { Link } from 'react-router'
+import withoutLink from './withoutLink'
 
 export default class Button extends withoutLink {
   renderLinkButton() {
@@ -11,6 +11,6 @@ export default class Button extends withoutLink {
       >
         {this.renderButton()}
       </Link>
-    );
+    )
   }
 }

@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router';
+import React from 'react'
+import { Link } from 'react-router'
 
 export default {
   login: 'Entrar',
@@ -22,4 +22,4 @@ export default {
       <Link to="/forgot">click here</Link>
     </div>
   ),
-};
+}

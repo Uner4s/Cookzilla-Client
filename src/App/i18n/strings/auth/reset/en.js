@@ -4,4 +4,4 @@ export default {
   confirm: 'Confirm password',
   doesntMatch: "Passwords doesn't match",
   setPassword: 'Set password',
-};
+}

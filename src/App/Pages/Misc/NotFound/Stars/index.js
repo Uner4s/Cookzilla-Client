@@ -1,10 +1,10 @@
-import React from 'react';
-import styles from './styles.css';
+import React from 'react'
+import styles from './styles.css'
 
 export default class Stars extends React.Component {
   static propTypes = {
     children: React.PropTypes.node,
-  };
+  }
 
   render() {
     return (
@@ -18,6 +18,6 @@ export default class Stars extends React.Component {
           </div>
         </div>
       </div>
-    );
+    )
   }
 }

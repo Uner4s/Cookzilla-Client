@@ -1,8 +1,8 @@
-import verifyEmail from './verifyEmail';
-import forgot from './forgot';
-import reset from './reset';
-import tos from './tos';
-import pages from './pages';
+import verifyEmail from './verifyEmail'
+import forgot from './forgot'
+import reset from './reset'
+import tos from './tos'
+import pages from './pages'
 
 export default {
   pages,
@@ -10,4 +10,4 @@ export default {
   forgot,
   reset,
   tos,
-};
+}

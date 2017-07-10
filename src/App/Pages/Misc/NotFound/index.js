@@ -1,10 +1,10 @@
-import React from 'react';
-import styles from './styles.css';
-import Stars from './Stars';
-import { Link } from 'react-router';
+import React from 'react'
+import styles from './styles.css'
+import Stars from './Stars'
+import { Link } from 'react-router'
 
 export default class NotFound extends React.Component {
-  static propTypes = {};
+  static propTypes = {}
 
   render() {
     return (
@@ -20,6 +20,6 @@ export default class NotFound extends React.Component {
           </div>
         </div>
       </Stars>
-    );
+    )
   }
 }

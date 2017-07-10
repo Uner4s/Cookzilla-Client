@@ -1,6 +1,6 @@
-import React from 'react';
-import styles from './styles.css';
-import _ from 'underscore';
+import React from 'react'
+import styles from './styles.css'
+import _ from 'underscore'
 
 export default class Button extends React.Component {
   static propTypes = {
@@ -15,7 +15,7 @@ export default class Button extends React.Component {
     disabled: React.PropTypes.bool,
     loading: React.PropTypes.bool,
     fullWidth: React.PropTypes.bool,
-  };
+  }
 
   static defaultProps = {
     linkButton: false,
@@ -25,41 +25,41 @@ export default class Button extends React.Component {
     style: {},
     disabled: false,
     fullWidth: false,
-  };
+  }
 
   getChildProps() {
-    const omitKeys = _.allKeys(Button.propTypes);
+    const omitKeys = _.allKeys(Button.propTypes)
     if (this.props.disabled || this.props.loading) {
-      omitKeys.push('onClick');
+      omitKeys.push('onClick')
     }
-    return _.omit(this.props, ...omitKeys);
+    return _.omit(this.props, ...omitKeys)
   }
 
   getClassName() {
-    const classes = [styles.button];
+    const classes = [styles.button]
     if (this.props.disabled) {
-      classes.push(styles.disabled);
+      classes.push(styles.disabled)
     } else if (this.props.loading) {
-      classes.push(styles.loading);
+      classes.push(styles.loading)
     } else if (this.props.danger) {
-      classes.push(styles.danger);
+      classes.push(styles.danger)
     } else if (this.props.primary) {
-      classes.push(styles.primary);
+      classes.push(styles.primary)
     }
     if (this.props.big) {
-      classes.push(styles.big);
+      classes.push(styles.big)
     }
     if (this.props.fullWidth) {
-      classes.push(styles.fullWidth);
+      classes.push(styles.fullWidth)
     }
-    return classes.join(' ');
+    return classes.join(' ')
   }
 
   renderInner() {
     if (this.props.label) {
-      return this.props.label;
+      return this.props.label
     } else {
-      return this.props.children;
+      return this.props.children
     }
   }
 
@@ -68,7 +68,7 @@ export default class Button extends React.Component {
       <span className={this.getClassName()} style={this.props.style}>
         {this.renderInner()}
       </span>
-    );
+    )
   }
 
   renderLinkButton() {
@@ -76,18 +76,18 @@ export default class Button extends React.Component {
       <a {...this.getChildProps()}>
         {this.renderButton()}
       </a>
-    );
+    )
   }
 
   render() {
     if (this.props.linkButton || this.props.href || this.props.to) {
-      return this.renderLinkButton();
+      return this.renderLinkButton()
     } else {
       return (
         <span {...this.getChildProps()}>
           {this.renderButton()}
         </span>
-      );
+      )
     }
   }
 }

@@ -1,7 +1,7 @@
-import React from 'react';
-import Root from 'App/Root';
-import Pages from './Pages';
-import { Router, Route, browserHistory } from 'react-router';
+import React from 'react'
+import Root from 'App/Root'
+import Pages from './Pages'
+import { Router, Route, browserHistory } from 'react-router'
 
 export default class App extends React.Component {
   render() {
@@ -11,6 +11,6 @@ export default class App extends React.Component {
           {Pages}
         </Route>
       </Router>
-    );
+    )
   }
 }

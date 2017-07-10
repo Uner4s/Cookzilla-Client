@@ -1,67 +1,67 @@
-import strings from './strings';
-import _ from 'underscore';
-import getLang from './getLang';
+import strings from './strings'
+import _ from 'underscore'
+import getLang from './getLang'
 
-const defaultLang = 'es';
+const defaultLang = 'es'
 
-const getString = function(key, lang) {
-  const parts = key.split('.');
-  let data = _.clone(strings);
+const getString = function (key, lang) {
+  const parts = key.split('.')
+  let data = _.clone(strings)
   for (let i = 0; i < parts.length; i++) {
-    const currentKey = parts[i];
+    const currentKey = parts[i]
     if (i === parts.length - 1) {
-      const final = data[lang];
-      if (!final) return;
-      const result = final[currentKey];
-      return result;
+      const final = data[lang]
+      if (!final) return
+      const result = final[currentKey]
+      return result
     } else {
-      data = data[currentKey];
-      if (!data) return;
+      data = data[currentKey]
+      if (!data) return
     }
   }
-};
+}
 
-const generateStringTemplate = function(string) {
+const generateStringTemplate = function (string) {
   var sanitized = string
-    .replace(/\$\{([\s]*[^;\s]+[\s]*)\}/g, function(_, match) {
-      return `\${map.${match.trim()}}`;
+    .replace(/\$\{([\s]*[^\s]+[\s]*)\}/g, function (_, match) {
+      return `\${map.${match.trim()}}`
     })
-    .replace(/(\$\{(?!map\.)[^}]+\})/g, '');
+    .replace(/(\$\{(?!map\.)[^}]+\})/g, '')
 
   // eslint-disable-next-line
-  const fn = Function('map', `return \`${sanitized}\``);
-  return fn;
-};
+  const fn = Function('map', `return \`${sanitized}\``)
+  return fn
+}
 
-const evaluateString = function(string, params) {
+const evaluateString = function (string, params) {
   if (typeof string === 'function') {
-    return string(params);
+    return string(params)
   } else {
-    const template = generateStringTemplate(string);
-    return template(params);
+    const template = generateStringTemplate(string)
+    return template(params)
   }
-};
+}
 
-export default function(key, params, lang) {
-  lang = lang || getLang();
-  let string = getString(key, lang);
-  if (!string) string = getString(key, defaultLang);
+export default function (key, params, lang) {
+  lang = lang || getLang()
+  let string = getString(key, lang)
+  if (!string) string = getString(key, defaultLang)
   if (!string) {
-    console.warn(`No translation for "${key}" in lang "${lang}"`);
-    return key;
+    console.warn(`No translation for "${key}" in lang "${lang}"`)
+    return key
   }
   try {
-    return evaluateString(string, params);
+    return evaluateString(string, params)
   } catch (e) {
     if (params) {
       console.log(
         `Error translating "${key}" in lang "${lang}" with params`,
         params,
         e
-      );
+      )
     } else {
-      console.log(`Error translating "${key}" in lang "${lang}"`, e);
+      console.log(`Error translating "${key}" in lang "${lang}"`, e)
     }
-    return key;
+    return key
   }
 }
