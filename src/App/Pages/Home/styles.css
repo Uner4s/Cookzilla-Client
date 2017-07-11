@@ -1,3 +1,16 @@
 :local(.container) {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 
+}
+
+:local(.subcontainerIngredient) {
+  display: flex;
+  margin-left: auto;
+}
+
+:local(.subcontainerImplement) {
+  display: flex;
+  margin-right: auto;
 }

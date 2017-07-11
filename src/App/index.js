@@ -4,7 +4,7 @@ import Pages from './Pages'
 import { Router, Route, browserHistory } from 'react-router'
 
 export default class App extends React.Component {
-  render() {
+  render () {
     return (
       <Router history={browserHistory}>
         <Route component={Root}>

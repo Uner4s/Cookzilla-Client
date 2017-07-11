@@ -9,7 +9,7 @@ export default class Root extends React.Component {
     children: React.PropTypes.node,
   }
 
-  render() {
+  render () {
     return (
       <ApolloProvider client={apolloClient}>
         <OrionsoftProvider>
