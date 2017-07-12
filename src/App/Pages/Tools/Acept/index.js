@@ -4,17 +4,15 @@ import withGraphQL from 'react-apollo-decorators/lib/withGraphQL'
 import gql from 'graphql-tag'
 import Button from 'orionsoft-parts/lib/components/Button'
 
-// Crear la funcion getTools para ocupar la query getTools
 @withGraphQL(gql`query getTools{
   getTools{
     _id
     name
-    state
   }
 }`)
 
-export default class Main extends React.Component {
-  // Validar el componente getTools
+export default class Acept extends React.Component {
+
   static propTypes = {
     getTools: React.PropTypes.func
   }
@@ -26,18 +24,16 @@ export default class Main extends React.Component {
         <div key={tool._id} className='row'>
           <div className='col-xs-12 col-sm-12'>
             {tool.name}
+              <Button to='' primary label='Acept'/>
           </div>
         </div>
       )
     })
   }
-
   render () {
-    console.log(this.props)
     return (
       <div className={styles.container}>
         {this.renderTools()}
-        <Button to='/tools/create' primary label='Create Tool'/>
       </div>
     )
   }

@@ -9,32 +9,32 @@ import withMessage from 'orionsoft-parts/lib/decorators/withMessage'
 import setGraphQLErrors from 'orionsoft-parts/lib/helpers/setGraphQLErrors'
 
 @withMessage
-@withMutation(gql`mutation createTool($name: String!){
-  createTool(name: $name){
+@withMutation(gql`mutation createIngredient($name: String!){
+  createIngredient(name: $name){
     _id
   }
 }`)
+
 export default class Create extends React.Component {
 
   static propTypes = {
-    createTool: React.PropTypes.func,
+    createIngredient: React.PropTypes.func,
     showMessage: React.PropTypes.func
   }
 
   state = {}
-  // función que en x momento debe esperar la respuesta de otra
-  async createTool () {
+  async createIngredient () {
     try {
       // Una vez que esta función se ejecute haz algo
-      await this.props.createTool(this.state)
-      window.location.href = '../tools'
-      window.alert('Tool added')
+      await this.props.createIngredient(this.state)
+      window.location.href = '../ingredients'
+      window.alert('Ingredient added')
     } catch (error) {
       setGraphQLErrors(this, error)
     }
   }
+
   render () {
-    console.log(this.state)
     return (
       <div className={styles.container}>
         <Form
@@ -43,7 +43,7 @@ export default class Create extends React.Component {
           onChange={changes => this.setState(changes)}>
           <Field fieldName='name' label='name' type={Text} />
         </Form>
-        <Button label='Save' onClick={() => this.createTool()}/>
+        <Button label='Save' onClick={() => this.createIngredient()}/>
       </div>
     )
   }
