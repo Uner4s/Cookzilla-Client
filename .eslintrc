@@ -1,4 +1,4 @@
 {
   "parser": "babel-eslint",
-  "extends": ["eslint-config-orionsoft"]
+  "extends": ["eslint-config-orionsoft", "plugin:react/recommended"]
 }

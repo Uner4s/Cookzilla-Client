@@ -4,7 +4,7 @@ import styles from './styles.css'
 export default class Logo extends React.Component {
   static propTypes = {}
 
-  render() {
+  render () {
     return (
       <div className={styles.logoContainer}>
         <img

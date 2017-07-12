@@ -42,7 +42,7 @@ export default class Reset extends React.Component {
     }
   }
 
-  renderButtons() {
+  renderButtons () {
     return (
       <div className={styles.buttonsContainer}>
         <Button disabled={!this.state.newPassword} onClick={this.reset}>
@@ -52,7 +52,7 @@ export default class Reset extends React.Component {
     )
   }
 
-  render() {
+  render () {
     return (
       <div>
         <Form state={this.state} onChange={changes => this.setState(changes)}>

@@ -20,10 +20,10 @@ export default class Register extends React.Component {
     setError: React.PropTypes.func,
     onSuccess: React.PropTypes.func,
     isLoading: React.PropTypes.bool,
-    client: React.PropTypes.object,
+    client: React.PropTypes.object
   }
 
-  @autobind async login() {
+  @autobind async login () {
     if (this.state.password !== this.state.confirm) {
       return this.props.setError(
         <Translate tr="auth.pages.passwordDoesntMatch" />
@@ -60,7 +60,7 @@ export default class Register extends React.Component {
     )
   }
 
-  render() {
+  render () {
     return (
       <div>
         {/* <Social {...this.props} /> */}
