@@ -4,8 +4,8 @@ import withGraphQL from 'react-apollo-decorators/lib/withGraphQL'
 import gql from 'graphql-tag'
 import Button from 'orionsoft-parts/lib/components/Button'
 
-@withGraphQL(gql`query ingredients{
-  ingredients{
+@withGraphQL(gql`query getAcceptedIngredients{
+  getAcceptedIngredients{
     _id
     name
   }
@@ -14,13 +14,13 @@ import Button from 'orionsoft-parts/lib/components/Button'
 export default class Main extends React.Component {
 
   static propTypes = {
-    ingredients: React.PropTypes.func
+    getAcceptedIngredients: React.PropTypes.func
   }
 
   renderIngredients () {
-    const {ingredients} = this.props
-    console.log({ingredients})
-    return ingredients.map(ingredient => {
+    const {getAcceptedIngredients} = this.props
+    console.log({getAcceptedIngredients})
+    return getAcceptedIngredients.map(ingredient => {
       return (
         <div key={ingredient._id} className='row'>
           <div className ='col-xs-12 col-sm-12'>

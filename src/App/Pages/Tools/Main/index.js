@@ -5,23 +5,22 @@ import gql from 'graphql-tag'
 import Button from 'orionsoft-parts/lib/components/Button'
 
 // Crear la funcion getTools para ocupar la query getTools
-@withGraphQL(gql`query getTools{
-  getTools{
+@withGraphQL(gql`query getAcceptedTools{
+  getAcceptedTools{
     _id
     name
-    state
   }
 }`)
 
 export default class Main extends React.Component {
   // Validar el componente getTools
   static propTypes = {
-    getTools: React.PropTypes.func
+    getAcceptedTools: React.PropTypes.func
   }
   // Render
   renderTools () {
-    const {getTools} = this.props
-    return getTools.map(tool => {
+    const {getAcceptedTools} = this.props
+    return getAcceptedTools.map(tool => {
       return (
         <div key={tool._id} className='row'>
           <div className='col-xs-12 col-sm-12'>
