@@ -35,9 +35,9 @@ export default class Main extends React.Component {
     return (
       <div className={styles.container}>
         {this.renderIngredients()}
-        <Button to ='/ingredients/create' primary label='create Ingredient'/>
+        <Button to ='/ingredients/create' primary label='Create Ingredient'/>
+        <Button to ='/ingredients/delete' primary label='Delete Ingredient'/>
       </div>
     )
   }
-
 }

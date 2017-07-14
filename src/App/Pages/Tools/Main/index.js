@@ -4,7 +4,7 @@ import withGraphQL from 'react-apollo-decorators/lib/withGraphQL'
 import gql from 'graphql-tag'
 import Button from 'orionsoft-parts/lib/components/Button'
 
-// Crear la funcion getTools para ocupar la query getTools
+// Crear la funcion getTools para ocupar lata query getTools
 @withGraphQL(gql`query getAcceptedTools{
   getAcceptedTools{
     _id
@@ -37,6 +37,7 @@ export default class Main extends React.Component {
       <div className={styles.container}>
         {this.renderTools()}
         <Button to='/tools/create' primary label='Create Tool'/>
+        <Button to='/tools/delete' primary label='Delete Tool'/>
       </div>
     )
   }

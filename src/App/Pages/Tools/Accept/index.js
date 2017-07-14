@@ -7,40 +7,68 @@ import Button from 'orionsoft-parts/lib/components/Button'
 import withMessage from 'orionsoft-parts/lib/decorators/withMessage'
 import setGraphQLErrors from 'orionsoft-parts/lib/helpers/setGraphQLErrors'
 import withMutation from 'react-apollo-decorators/lib/withMutation'
+import autobind from 'autobind-decorator'
 
+// Show Pending Tools
 @withGraphQL(gql`query pendingTools{
   pendingTools{
     _id
     name
   }
 }`)
-
+// Accept Tool
 @withMessage
 @withMutation(gql`mutation stateTool($_id: ID!){
   stateTool(_id: $_id){
+    _id
     state
   }
+}`)
+// Reject Tool
+@withMessage
+@withMutation(gql`mutation deleteTool($_id: ID!){
+  deleteTool(_id: $_id)
 }`)
 
 export default class Accept extends React.Component {
 
   static propTypes = {
     pendingTools: React.PropTypes.func,
-    stateTool: React.PropTypes.func
+    stateTool: React.PropTypes.func,
+    showMessage: React.PropTypes.func,
+    deleteTool: React.PropTypes.func
   }
   // Render
-  async renderAccept (){
+  state = {}
+  @autobind
+  renderAccept (variable) {
     try {
+      console.log(variable)
       // Una vez que esta función se ejecute haz algo
-      await this.props.stateTool(this.state)
-      //window.location.href = '../tools'
-      //window.alert('Tool added')
+      this.props.stateTool({_id: variable})
+      window.location.href = '../tools/accept'
+      window.alert('Tool added')
+    } catch (error) {
+      setGraphQLErrors(this, error)
+    }
+
+  }
+  state = {}
+  @autobind
+  renderReject (variable) {
+    try {
+      console.log(variable)
+      // Una vez que esta función se ejecute haz algo
+      this.props.deleteTool({_id: variable})
+      window.location.href = '../tools/accept'
+      window.alert('Tool deleted')
     } catch (error) {
       setGraphQLErrors(this, error)
     }
 
   }
 
+  @autobind
   renderPending () { // crear una función para luego llamarla y asi no llenar de codigo el return del render
     const {pendingTools} = this.props
     return pendingTools.map(tool => {
@@ -49,7 +77,8 @@ export default class Accept extends React.Component {
         <div key={tool._id} className='row' >
           <div className='col-xs-12 col-sm-12'>
             {tool.name}
-            <Button label='Save' onClick={() => this.renderAccept()}/>
+            <Button label='Accept' onClick={() => this.renderAccept(tool._id) }/>
+            <Button label='Reject' onClick={() => this.renderReject(tool._id) }/>
           </div>
         </div>
       )
