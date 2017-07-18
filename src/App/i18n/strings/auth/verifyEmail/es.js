@@ -1,3 +1,3 @@
 export default {
-  verifying: 'Verificando email...',
+  verifying: 'Verificando email...'
 }

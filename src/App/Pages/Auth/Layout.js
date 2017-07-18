@@ -12,10 +12,10 @@ export default class Layout extends React.Component {
     children: React.PropTypes.any,
     location: React.PropTypes.object,
     router: React.PropTypes.object,
-    params: React.PropTypes.object,
+    params: React.PropTypes.object
   }
 
-  @autobind onSuccess() {
+  @autobind onSuccess () {
     const { location } = this.props
     if (location.state && location.state.nextPathname) {
       this.props.router.replace(location.state.nextPathname)
@@ -24,7 +24,7 @@ export default class Layout extends React.Component {
     }
   }
 
-  renderLogo() {
+  renderLogo () {
     return (
       <div className={styles.logo}>
         <Logo color="black" isLoading={this.state.isLoading} />
@@ -32,7 +32,7 @@ export default class Layout extends React.Component {
     )
   }
 
-  renderChildren() {
+  renderChildren () {
     return React.cloneElement(this.props.children, {
       setError: error => {
         if (error && typeof error === 'string') {
@@ -43,11 +43,11 @@ export default class Layout extends React.Component {
       setLoading: isLoading => this.setState({ isLoading }),
       isLoading: this.state.isLoading,
       onSuccess: this.onSuccess,
-      ...this.props.params,
+      ...this.props.params
     })
   }
 
-  renderError() {
+  renderError () {
     if (!this.state.error) return
     return (
       <div className={styles.error}>
@@ -56,7 +56,7 @@ export default class Layout extends React.Component {
     )
   }
 
-  render() {
+  render () {
     return (
       <div className={styles.root}>
         <div className={styles.paperContainer}>

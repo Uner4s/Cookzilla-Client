@@ -21,5 +21,5 @@ export default {
       {' '}
       <Link to="/forgot">click here</Link>
     </div>
-  ),
+  )
 }

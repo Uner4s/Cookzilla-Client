@@ -17,10 +17,10 @@ export default class Forgot extends React.Component {
     setLoading: React.PropTypes.func,
     isLoading: React.PropTypes.bool,
     setError: React.PropTypes.func,
-    client: React.PropTypes.object,
+    client: React.PropTypes.object
   }
 
-  @autobind async send() {
+  @autobind async send () {
     if (!this.canSend()) return
     this.props.setLoading(true)
     this.props.setError(null)
@@ -34,11 +34,11 @@ export default class Forgot extends React.Component {
     }
   }
 
-  canSend() {
+  canSend () {
     return this.state.email
   }
 
-  renderButtons() {
+  renderButtons () {
     return (
       <div className={styles.buttonsContainer}>
         <Button
@@ -53,7 +53,7 @@ export default class Forgot extends React.Component {
     )
   }
 
-  renderReady() {
+  renderReady () {
     return (
       <div>
         <Translate tr="auth.forgot.ready" />
@@ -61,7 +61,7 @@ export default class Forgot extends React.Component {
     )
   }
 
-  render() {
+  render () {
     if (this.state.isReady) return this.renderReady()
     return (
       <div>

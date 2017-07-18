@@ -40,11 +40,11 @@ export default class Register extends React.Component {
     }
   }
 
-  canRegister() {
+  canRegister () {
     return this.state.email && this.state.password && this.state.confirm
   }
 
-  renderButtons() {
+  renderButtons () {
     return (
       <div className={styles.buttonsContainer}>
         <Button

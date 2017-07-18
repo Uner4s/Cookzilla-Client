@@ -2,8 +2,6 @@ import React from 'react'
 import styles from './styles.css'
 import {Form, Field} from 'simple-react-form'
 import Text from 'orionsoft-parts/lib/components/fields/Text'
-import Button from 'orionsoft-parts/lib/components/Button'
-import autobind from 'autobind-decorator'
 import ArrayComponent from 'orionsoft-parts/lib/components/fields/ArrayComponent'
 import ShowRecipes from './ShowRecipes'
 export default class Search extends React.Component {
@@ -17,7 +15,6 @@ export default class Search extends React.Component {
   }
 
   render () {
-    console.log(this)
     return (
       <div className={styles.container}>
         <Form

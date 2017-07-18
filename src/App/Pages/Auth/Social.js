@@ -5,7 +5,7 @@ import GoogleLogin from 'react-google-login'
 import {
   loginWithFacebook,
   loginWithGoogle,
-  loginWithLinkedIn,
+  loginWithLinkedIn
 } from 'meteor-apollo-accounts'
 import styles from './styles.css'
 import LinkedIn from 'react-linkedin-login'
@@ -17,15 +17,15 @@ export default class Social extends React.Component {
     setLoading: React.PropTypes.func,
     setError: React.PropTypes.func,
     onSuccess: React.PropTypes.func,
-    client: React.PropTypes.object,
+    client: React.PropTypes.object
   }
 
-  @autobind start() {
+  @autobind start () {
     this.props.setLoading(true)
     this.props.setError(null)
   }
 
-  @autobind async callbackFacebook({ accessToken }) {
+  @autobind async callbackFacebook ({ accessToken }) {
     if (!accessToken) return
     try {
       await loginWithFacebook({ accessToken }, this.props.client)
@@ -37,7 +37,7 @@ export default class Social extends React.Component {
     }
   }
 
-  @autobind async callbackLinkedIn({ code, redirectUri }) {
+  @autobind async callbackLinkedIn ({ code, redirectUri }) {
     if (!code) return
     try {
       this.props.setLoading(true)
@@ -50,7 +50,7 @@ export default class Social extends React.Component {
     }
   }
 
-  @autobind async successGoogle({ accessToken }) {
+  @autobind async successGoogle ({ accessToken }) {
     if (!accessToken) return
     try {
       this.props.setLoading(true)
@@ -64,13 +64,13 @@ export default class Social extends React.Component {
     }
   }
 
-  @autobind failureGoogle(error) {
+  @autobind failureGoogle (error) {
     console.log('error with google', error)
     this.props.setError(error.message)
     this.props.setLoading(false)
   }
 
-  render() {
+  render () {
     return (
       <div className={styles.social}>
         <FacebookLogin

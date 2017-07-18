@@ -9,5 +9,5 @@ export default {
   verifyEmail,
   forgot,
   reset,
-  tos,
+  tos
 }

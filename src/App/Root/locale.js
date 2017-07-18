@@ -4,15 +4,15 @@ import moment from 'moment'
 numeral.register('locale', 'es', {
   delimiters: {
     thousands: '.',
-    decimal: ',',
+    decimal: ','
   },
   abbreviations: {
     thousand: 'k',
     million: 'mm',
     billion: 'b',
-    trillion: 't',
+    trillion: 't'
   },
-  ordinal: function(number) {
+  ordinal: function (number) {
     const b = number % 10
     return b === 1 || b === 3
       ? 'er'
@@ -21,8 +21,8 @@ numeral.register('locale', 'es', {
           : b === 7 || b === 0 ? 'mo' : b === 8 ? 'vo' : b === 9 ? 'no' : 'to'
   },
   currency: {
-    symbol: '$',
-  },
+    symbol: '$'
+  }
 })
 
 moment.locale('es')

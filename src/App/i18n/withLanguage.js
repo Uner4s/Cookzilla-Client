@@ -1,17 +1,17 @@
 import React from 'react'
 
-export default function(ComposedComponent) {
+export default function (ComposedComponent) {
   return class WithLanguage extends React.Component {
     static contextTypes = {
       language: React.PropTypes.string,
-      setLanguage: React.PropTypes.func,
+      setLanguage: React.PropTypes.func
     }
 
-    shouldComponentUpdate(nextProps, nextState, nextContext) {
+    shouldComponentUpdate (nextProps, nextState, nextContext) {
       return this.context.language !== nextContext.language
     }
 
-    render() {
+    render () {
       return (
         <ComposedComponent
           {...this.props}

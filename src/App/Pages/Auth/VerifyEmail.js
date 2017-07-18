@@ -11,16 +11,16 @@ export default class VerifyEmail extends React.Component {
     isLoading: React.PropTypes.bool,
     token: React.PropTypes.string,
     onSuccess: React.PropTypes.func,
-    client: React.PropTypes.object,
+    client: React.PropTypes.object
   }
 
   state = {}
 
-  componentDidMount() {
+  componentDidMount () {
     this.verify()
   }
 
-  @autobind async verify() {
+  @autobind async verify () {
     try {
       this.props.setLoading(true)
       await verifyEmail({ token: this.props.token }, this.props.client)
@@ -33,7 +33,7 @@ export default class VerifyEmail extends React.Component {
     }
   }
 
-  render() {
+  render () {
     if (this.state.error) {
       return (
         <div className="center-align">

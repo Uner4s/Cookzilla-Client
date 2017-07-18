@@ -6,7 +6,7 @@ import './locale'
 
 export default class Root extends React.Component {
   static propTypes = {
-    children: React.PropTypes.node,
+    children: React.PropTypes.node
   }
 
   render () {

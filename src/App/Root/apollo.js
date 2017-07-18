@@ -6,12 +6,12 @@ export const createMeteorNetworkInterface = () => {
   const networkInterface = createBatchingNetworkInterface({
     uri: baseURL + '/graphql',
     batchingInterface: true,
-    batchInterval: 10,
+    batchInterval: 10
   })
 
   networkInterface.use([
     {
-      async applyBatchMiddleware(request, next) {
+      async applyBatchMiddleware (request, next) {
         const currentUserToken = await getLoginToken()
         if (!currentUserToken) next()
 
@@ -21,8 +21,8 @@ export const createMeteorNetworkInterface = () => {
         request.options.headers.Authorization = currentUserToken
         next()
         // setTimeout(next, 2000)
-      },
-    },
+      }
+    }
   ])
 
   return networkInterface
@@ -37,12 +37,12 @@ const config = {
       return result.__typename + ':' + result._id
     }
   },
-  shouldBatch: false,
+  shouldBatch: false
 }
 
 const apollo = new ApolloClient(config)
 
-onTokenChange(function() {
+onTokenChange(function () {
   apollo.resetStore()
 })
 

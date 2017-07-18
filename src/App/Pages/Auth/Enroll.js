@@ -18,10 +18,10 @@ export default class Reset extends React.Component {
     setError: React.PropTypes.func,
     onSuccess: React.PropTypes.func,
     token: React.PropTypes.string,
-    client: React.PropTypes.object,
+    client: React.PropTypes.object
   }
 
-  @autobind async reset() {
+  @autobind async reset () {
     if (this.state.newPassword !== this.state.confirm) {
       return this.props.setError(<Translate tr="auth.reset.doesntMatch" />)
     }
@@ -31,7 +31,7 @@ export default class Reset extends React.Component {
       await resetPassword(
         {
           newPassword: this.state.newPassword,
-          token: this.props.token,
+          token: this.props.token
         },
         this.props.client
       )
@@ -42,7 +42,7 @@ export default class Reset extends React.Component {
     }
   }
 
-  renderButtons() {
+  renderButtons () {
     return (
       <div className={styles.buttonsContainer}>
         <Button disabled={!this.state.newPassword} onClick={this.reset}>
@@ -52,7 +52,7 @@ export default class Reset extends React.Component {
     )
   }
 
-  render() {
+  render () {
     return (
       <div>
         <Form state={this.state} onChange={changes => this.setState(changes)}>

@@ -4,14 +4,14 @@ import Layout from './Layout'
 import Main from './Main'
 import Create from './Create'
 import Search from './Search'
-import SearchRecipe from './SearchRecipe'
+import ShowRecipes from './Search/ShowRecipes'
 
 export default (
   <Route path='recipes' component={Layout}>
     <IndexRoute component={Main} />
     <Route path='create' component={Create} />
     <Route path='search' component={Search} />
-    <Route path='searchrecipe' component={SearchRecipe} />
+    <Route path='showrecipes' component={ShowRecipes} />
   </Route>
 
 )

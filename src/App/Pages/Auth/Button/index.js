@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 import withoutLink from './withoutLink'
 
 export default class Button extends withoutLink {
-  renderLinkButton() {
+  renderLinkButton () {
     return (
       <Link
         to={this.props.to}

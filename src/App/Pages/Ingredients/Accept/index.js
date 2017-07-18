@@ -2,7 +2,6 @@ import React from 'react'
 import styles from './styles.css'
 import withGraphQL from 'react-apollo-decorators/lib/withGraphQL'
 import gql from 'graphql-tag'
-import {Form, Field} from 'simple-react-form'
 import Button from 'orionsoft-parts/lib/components/Button'
 import withMessage from 'orionsoft-parts/lib/decorators/withMessage'
 import setGraphQLErrors from 'orionsoft-parts/lib/helpers/setGraphQLErrors'
@@ -81,8 +80,6 @@ export default class Accept extends React.Component {
       )
     })
   }
-
-
 
   render () {
     return (

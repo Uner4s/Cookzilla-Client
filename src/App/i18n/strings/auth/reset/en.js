@@ -3,5 +3,5 @@ export default {
   newPassword: 'New password',
   confirm: 'Confirm password',
   doesntMatch: "Passwords doesn't match",
-  setPassword: 'Set password',
+  setPassword: 'Set password'
 }

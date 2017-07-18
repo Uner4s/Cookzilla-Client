@@ -25,12 +25,12 @@ export default class Login extends React.Component {
     onSuccess: React.PropTypes.func,
     isLoading: React.PropTypes.bool,
     client: React.PropTypes.object,
-    loginWithTwoFactor: React.PropTypes.func,
+    loginWithTwoFactor: React.PropTypes.func
   }
 
   state = {}
 
-  @autobind async loginWithTwoFactor() {
+  @autobind async loginWithTwoFactor () {
     this.props.setLoading(true)
     this.props.setError(null)
     try {
@@ -46,7 +46,7 @@ export default class Login extends React.Component {
     this.props.setLoading(false)
   }
 
-  @autobind async login() {
+  @autobind async login () {
     if (this.state.hasTwoFactor) return this.loginWithTwoFactor()
     this.props.setLoading(true)
     this.props.setError(null)
@@ -67,23 +67,23 @@ export default class Login extends React.Component {
     }
   }
 
-  @autobind handleEmailKey(event) {
+  @autobind handleEmailKey (event) {
     if (event.charCode === 13 || event.keyCode === 13) {
       this.refs.password.refs.input.refs.input.focus()
     }
   }
 
-  @autobind handlePasswordKey(event) {
+  @autobind handlePasswordKey (event) {
     if (event.charCode === 13 || event.keyCode === 13) {
       this.login()
     }
   }
 
-  canLogin() {
+  canLogin () {
     return this.state.email && this.state.password
   }
 
-  renderButtons() {
+  renderButtons () {
     return (
       <div className={styles.buttonsContainer}>
         <Button
@@ -99,7 +99,7 @@ export default class Login extends React.Component {
     )
   }
 
-  renderTwoFactor() {
+  renderTwoFactor () {
     if (!this.state.hasTwoFactor) return
     return (
       <div>
@@ -115,7 +115,7 @@ export default class Login extends React.Component {
     )
   }
 
-  render() {
+  render () {
     return (
       <div>
         {/* <Social {...this.props} /> */}

@@ -6,7 +6,7 @@ import File from 'orionsoft-parts/lib/components/fields/File'
 const config = {
   awsSignatureVersion: '2',
   signerUrl: `${baseURL}/sign_s3`,
-  logging: false,
+  logging: false
 }
 
 config.aws_key = 'AKIAI6VB7PMY5FUGRS6A'
@@ -14,11 +14,11 @@ config.bucket = 'orionsoft-tests'
 
 const evaporate = new Evaporate(config)
 
-const replaceS3Url = function(name) {
+const replaceS3Url = function (name) {
   return `https://s3.amazonaws.com/${config.bucket}/${name}`
 }
 
-export const uploadFile = function({ file, onProgress, onReady, onError }) {
+export const uploadFile = function ({ file, onProgress, onReady, onError }) {
   const id = random.alphaNum(10)
   const name = `${id}_${file.name}`
 
@@ -27,25 +27,25 @@ export const uploadFile = function({ file, onProgress, onReady, onError }) {
     file,
     contentType: file.type,
     progress: onProgress,
-    error: function(message) {
+    error: function (message) {
       console.log(message, 'error uploading file')
       onError(message)
     },
-    complete: function(_xhr, awsKey) {
+    complete: function (_xhr, awsKey) {
       onReady({
         url: replaceS3Url(awsKey),
-        meta: { s3Path: '/' + awsKey },
+        meta: { s3Path: '/' + awsKey }
       })
-    },
+    }
   })
 }
 
-export const deleteFile = function({ file, onReady, onError }) {
+export const deleteFile = function ({ file, onReady, onError }) {
   console.log('no delete function')
 }
 
 export default {
   type: File,
   upload: uploadFile,
-  delete: deleteFile,
+  delete: deleteFile
 }

@@ -6,7 +6,7 @@ import { Link } from 'react-router'
 export default class NotFound extends React.Component {
   static propTypes = {}
 
-  render() {
+  render () {
     return (
       <Stars>
         <div className={styles.container}>

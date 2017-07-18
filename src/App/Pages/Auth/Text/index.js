@@ -11,10 +11,10 @@ export default class Text extends React.Component {
   }
 
   static defaultProps = {
-    fieldType: 'text',
+    fieldType: 'text'
   }
 
-  render() {
+  render () {
     return (
       <div className={styles.container}>
         <input

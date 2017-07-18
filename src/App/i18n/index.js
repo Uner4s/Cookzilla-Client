@@ -8,26 +8,26 @@ export default class Translate extends React.Component {
   static propTypes = {
     tr: React.PropTypes.string.isRequired,
     html: React.PropTypes.bool,
-    language: React.PropTypes.string,
+    language: React.PropTypes.string
   }
 
   static defaultProps = {
-    html: false,
+    html: false
   }
 
-  getParams() {
+  getParams () {
     return omit(this.props, 'tr')
   }
 
-  getLang() {
+  getLang () {
     return this.props.language
   }
 
-  renderHTML(translation) {
+  renderHTML (translation) {
     return <span dangerouslySetInnerHTML={{ __html: translation }} />
   }
 
-  renderText() {
+  renderText () {
     const translation = translate(
       this.props.tr,
       this.getParams(),
@@ -37,7 +37,7 @@ export default class Translate extends React.Component {
     return translation
   }
 
-  render() {
+  render () {
     return (
       <span>
         {this.renderText()}
