@@ -2,8 +2,6 @@ import React from 'react'
 import styles from './styles.css'
 import withGraphQL from 'react-apollo-decorators/lib/withGraphQL'
 import gql from 'graphql-tag'
-import setGraphQLErrors from 'orionsoft-parts/lib/helpers/setGraphQLErrors'
-import autobind from 'autobind-decorator'
 
 @withGraphQL(gql`query advanceRecipeSearch($ingredients: [SearchIngredient] $tools: [SearchTool]){
   advanceRecipeSearch(ingredients: $ingredients tools: $tools){
@@ -21,9 +19,10 @@ export default class ShowRecipes extends React.Component {
     const {advanceRecipeSearch} = this.props
     return advanceRecipeSearch.map(recipe => {
       return (
+        console.log(recipe.title),
         <div key={recipe._id} className='row' >
           <div className='col-xs-12 col-sm-12'>
-            {recipe.name}
+            {recipe.title}
           </div>
         </div>
       )
@@ -34,6 +33,7 @@ export default class ShowRecipes extends React.Component {
     console.log(this)
     return (
       <div className={styles.container}>
+        Titulos
         {this.renderFind()}
       </div>
     )

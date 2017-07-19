@@ -5,6 +5,7 @@ import Text from 'orionsoft-parts/lib/components/fields/Text'
 import withMutation from 'react-apollo-decorators/lib/withMutation'
 import Button from 'orionsoft-parts/lib/components/Button'
 import gql from 'graphql-tag'
+import ArrayComponent from 'orionsoft-parts/lib/components/fields/ArrayComponent'
 import withMessage from 'orionsoft-parts/lib/decorators/withMessage'
 import setGraphQLErrors from 'orionsoft-parts/lib/helpers/setGraphQLErrors'
 import autobind from 'autobind-decorator'
@@ -53,6 +54,12 @@ export default class Create extends React.Component {
             <Field fieldName='time' label='time' type={Text} />
             <label>Gloss</label>
             <Field fieldName='gloss' label='gloss' type={Text} />
+            <Field fieldName='ingredient' label='Ingredient' type={ArrayComponent}>
+              <Field fieldName='name' label='name' type={Text} />
+            </Field>
+            <Field fieldName='tool' label='Tool' type={ArrayComponent}>
+              <Field fieldName='name' label='name' type={Text} />
+            </Field>
           </Form>
           <Button label='Save' onClick={() => this.renderCreate()}/>
         </div>
