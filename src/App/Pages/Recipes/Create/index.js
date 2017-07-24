@@ -61,7 +61,7 @@ export default class Create extends React.Component {
               <Field fieldName='name' label='name' type={Text} />
             </Field>
           </Form>
-          <Button label='Save' onClick={() => this.renderCreate()}/>
+          <Button label='Send' onClick={() => this.renderCreate()}/>
         </div>
     )
   }
