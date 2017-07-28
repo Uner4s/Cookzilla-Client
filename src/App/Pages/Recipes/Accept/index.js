@@ -7,6 +7,9 @@ import withMessage from 'orionsoft-parts/lib/decorators/withMessage'
 import setGraphQLErrors from 'orionsoft-parts/lib/helpers/setGraphQLErrors'
 import withMutation from 'react-apollo-decorators/lib/withMutation'
 import autobind from 'autobind-decorator'
+//import requireRole from 'orionsoft-parts/lib/decorators/requireRole'
+
+//@requireRole(['moderator'])
 
 // Pending Recipes to Accept
 @withGraphQL(gql`query pendingRecipes{
@@ -71,10 +74,14 @@ export default class Accept extends React.Component {
       return (
         console.log(recipe._id),
         <div key={recipe._id} className='row' >
-          <div className='col-xs-12 col-sm-12'>
-            {recipe.title}
-            <Button label='Accept' onClick={() => this.renderAccept(recipe._id)}/>
-            <Button label='Reject' onClick={() => this.renderReject(recipe._id)}/>
+          <div className='col-xs-6'>
+            {recipe._id}
+          </div>
+            <div className='col-xs-6'>
+              {recipe.title}
+              <Button className='col-xs-6' to={`/recipes/onerecipe/${recipe._id}`} label='View'/>
+              <Button className='col-xs-6' label='Accept' onClick={() => this.renderAccept(recipe._id)}/>
+              <Button className='col-xs-6' label='Reject' onClick={() => this.renderReject(recipe._id)}/>
           </div>
         </div>
       )
@@ -84,6 +91,15 @@ export default class Accept extends React.Component {
   render () {
     return (
       <div className={styles.container}>
+        <h2>Pending recipes</h2>
+        <div className='row'>
+          <div className='col-xs-6'>
+            <h3>ID</h3>
+          </div>
+          <div className='col-xs-6'>
+            <h3>Title</h3>
+          </div>
+        </div>
         {this.renderPending()}
       </div>
     )

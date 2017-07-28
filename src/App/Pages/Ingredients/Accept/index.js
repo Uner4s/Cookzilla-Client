@@ -69,12 +69,14 @@ export default class Accept extends React.Component {
     const {pendingIngredients} = this.props
     return pendingIngredients.map(ingredient => {
       return (
-        console.log(ingredient._id),
         <div key={ingredient._id} className='row' >
-          <div className='col-xs-12 col-sm-12'>
+          <div className='col-xs-6'>
+            {ingredient._id}
+          </div>
+          <div className='col-xs-6'>
             {ingredient.name}
-            <Button label='Accept' onClick={() => this.renderAccept(ingredient._id)}/>
-            <Button label='Reject' onClick={() => this.renderReject(ingredient._id)}/>
+            <Button className='col-xs-6' label='Accept' onClick={() => this.renderAccept(ingredient._id) }/>
+            <Button className='col-xs-6' label='Reject' onClick={() => this.renderReject(ingredient._id) }/>
           </div>
         </div>
       )
@@ -84,6 +86,15 @@ export default class Accept extends React.Component {
   render () {
     return (
       <div className={styles.container}>
+        <h2>Ingredients</h2>
+        <div className='row'>
+          <div className='col-xs-6'>
+            <h3>ID</h3>
+          </div>
+          <div className='col-xs-6'>
+            <h3>Name</h3>
+          </div>
+        </div>
         {this.renderPending()}
       </div>
     )

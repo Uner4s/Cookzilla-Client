@@ -38,13 +38,14 @@ export default class Create extends React.Component {
     console.log(this.state)
     return (
       <div className={styles.container}>
+        <h2>Create Tool</h2>
         <Form
           errorMessages={this.state.errorMessages}
           state={this.state}
           onChange={changes => this.setState(changes)}>
           <Field fieldName='name' label='name' type={Text} />
         </Form>
-        <Button label='Save' onClick={() => this.createTool()}/>
+        <Button className='col-xs-6' label='Save' onClick={() => this.createTool()}/>
       </div>
     )
   }

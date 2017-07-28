@@ -1,6 +1,6 @@
 import React from 'react'
-import Navbar from 'orionsoft-parts/lib/components/Navbar'
 import styles from './styles.css'
+import Navbar from '../../components/Navbar'
 export default class Layout extends React.Component {
   static propTypes = {
     children: React.PropTypes.node

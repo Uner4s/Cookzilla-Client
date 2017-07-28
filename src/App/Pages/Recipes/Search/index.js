@@ -19,18 +19,24 @@ export default class Search extends React.Component {
     return (
       <div className='row '>
         <div className={styles.container}>
-          <Form
-            state={this.state}
-            onChange={changes => this.setState(changes)}>
-            <Field fieldName='ingredients' label='Ingredients' type={ArrayComponent}>
-              <Field fieldName='name' label='name' type={Text} />
-            </Field>
-            <Field fieldName='tools' label='Tools' type={ArrayComponent}>
-              <Field fieldName='name' label='name' type={Text} />
-            </Field>
-          </Form>
-          <ShowRecipes ingredients={this.state.ingredients} tools={this.state.tools}/>
-        </div>
+            <Form
+              state={this.state}
+              onChange={changes => this.setState(changes)}>
+              <div className='row '>
+                <div className="col-xs-6" >
+                <Field fieldName='ingredients' label='Ingredients' type={ArrayComponent}>
+                  <Field fieldName='name' label='name' type={Text} />
+                </Field>
+                </div>
+                <div className="col-xs-6" >
+                <Field fieldName='tools' label='Tools' type={ArrayComponent}>
+                  <Field fieldName='name' label='name' type={Text} />
+                </Field>
+                </div>
+              </div>
+            </Form>
+            <ShowRecipes ingredients={this.state.ingredients} tools={this.state.tools}/>
+          </div>
       </div>
     )
   }

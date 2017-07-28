@@ -23,7 +23,10 @@ export default class Main extends React.Component {
     return getAcceptedTools.map(tool => {
       return (
         <div key={tool._id} className='row'>
-          <div className='col-xs-12 col-sm-12'>
+          <div className='col-xs-6'>
+            {tool._id}
+          </div>
+          <div className='col-xs-6'>
             {tool.name}
           </div>
         </div>
@@ -32,12 +35,22 @@ export default class Main extends React.Component {
   }
 
   render () {
-    console.log(this.props)
     return (
       <div className={styles.container}>
-        {this.renderTools()}
-        <Button to='/tools/create' primary label='Create Tool'/>
-        <Button to='/tools/delete' primary label='Delete Tool'/>
+        <h2>Tools</h2>
+        <div className='row'>
+          <div className='col-xs-6'>
+            <h3>ID</h3>
+          </div>
+          <div className='col-xs-6'>
+            <h3>Name</h3>
+          </div>
+        </div>
+        {this.renderTools()} <br></br>
+        <div className='row'>
+          <Button className='col-xs-6' to='/tools/create' primary label='Create Tool'/>
+          <Button className='col-xs-6' to='/tools/delete' primary label='Delete Tool'/>
+        </div>
       </div>
     )
   }

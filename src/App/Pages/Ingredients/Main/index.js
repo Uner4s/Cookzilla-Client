@@ -23,7 +23,10 @@ export default class Main extends React.Component {
     return getAcceptedIngredients.map(ingredient => {
       return (
         <div key={ingredient._id} className='row'>
-          <div className ='col-xs-12 col-sm-12'>
+          <div className='col-xs-6'>
+            {ingredient._id}
+          </div>
+          <div className='col-xs-6'>
             {ingredient.name}
           </div>
         </div>
@@ -34,9 +37,20 @@ export default class Main extends React.Component {
     console.log(this)
     return (
       <div className={styles.container}>
-        {this.renderIngredients()}
-        <Button to ='/ingredients/create' primary label='Create Ingredient'/>
-        <Button to ='/ingredients/delete' primary label='Delete Ingredient'/>
+        <h2>Ingredients</h2>
+        <div className='row'>
+          <div className='col-xs-6'>
+            <h3>ID</h3>
+          </div>
+          <div className='col-xs-6'>
+            <h3>Name</h3>
+          </div>
+        </div>
+        {this.renderIngredients()} <br></br>
+        <div className='row'>
+          <Button className='col-xs-6' to ='/ingredients/create' primary label='Create Ingredient'/>
+          <Button className='col-xs-6' to ='/ingredients/delete' primary label='Delete Ingredient'/>
+        </div>
       </div>
     )
   }

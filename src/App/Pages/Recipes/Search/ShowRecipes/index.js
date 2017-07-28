@@ -37,7 +37,7 @@ export default class ShowRecipes extends React.Component {
     console.log(this)
     return (
       <div className={styles.container}>
-        Titulos <br></br>
+        <h2>Titles of Recipes</h2> <br></br>
         {this.renderFind()}
       </div>
     )

@@ -73,12 +73,14 @@ export default class Accept extends React.Component {
     const {pendingTools} = this.props
     return pendingTools.map(tool => {
       return (
-        console.log(tool._id),
         <div key={tool._id} className='row' >
-          <div className='col-xs-12 col-sm-12'>
+          <div className='col-xs-6'>
+            {tool._id}
+          </div>
+          <div className='col-xs-6'>
             {tool.name}
-            <Button label='Accept' onClick={() => this.renderAccept(tool._id) }/>
-            <Button label='Reject' onClick={() => this.renderReject(tool._id) }/>
+            <Button className='col-xs-6' label='Accept' onClick={() => this.renderAccept(tool._id) }/>
+            <Button className='col-xs-6' label='Reject' onClick={() => this.renderReject(tool._id) }/>
           </div>
         </div>
       )
@@ -87,6 +89,15 @@ export default class Accept extends React.Component {
   render () {
     return (
       <div className={styles.container}>
+        <h2>Tools</h2>
+        <div className='row'>
+          <div className='col-xs-6'>
+            <h3>ID</h3>
+          </div>
+          <div className='col-xs-6'>
+            <h3>Name</h3>
+          </div>
+        </div>
         {this.renderPending()}
       </div>
     )

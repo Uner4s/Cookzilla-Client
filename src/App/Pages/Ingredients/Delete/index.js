@@ -46,9 +46,12 @@ export default class Delete extends React.Component {
     return getAcceptedIngredients.map(ingredient => {
       return (
         <div key={ingredient._id} className='row'>
-          <div className ='col-xs-12 col-sm-12'>
+          <div className='col-xs-6'>
+            {ingredient._id}
+          </div>
+          <div className='col-xs-6'>
             {ingredient.name}
-            <Button label='Delete' onClick={() => this.renderDelete(ingredient._id)}/>
+            <Button className='col-xs-6' label='Delete' onClick={() => this.renderDelete(ingredient._id) }/>
           </div>
         </div>
       )
@@ -58,6 +61,15 @@ export default class Delete extends React.Component {
   render () {
     return (
       <div className={styles.container}>
+        <h2>Ingredients</h2>
+        <div className='row'>
+          <div className='col-xs-6'>
+            <h3>ID</h3>
+          </div>
+          <div className='col-xs-6'>
+            <h3>Name</h3>
+          </div>
+        </div>
         {this.renderIngredients()}
       </div>
     )

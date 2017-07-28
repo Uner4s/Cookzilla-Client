@@ -44,10 +44,14 @@ export default class All extends React.Component {
     return getAcceptedRecipes.map(recipe => {
       return (
         <div key={recipe._id} className='row'>
-          <div className ='col-xs-12 col-sm-12'>
-            {recipe.title}
-            <Button label='Delete' onClick={() => this.renderDelete(recipe._id)}/>
-          </div>
+            <div className='col-xs-6'>
+              {recipe._id}
+            </div>
+            <div className='col-xs-6'>
+              {recipe.title}
+              <Button className='col-xs-6' to={`/recipes/onerecipe/${recipe._id}`} label='View'/>
+              <Button className='col-xs-6' label='Delete' onClick={() => this.renderDelete(recipe._id)}/>
+            </div>
         </div>
       )
     })
@@ -56,6 +60,15 @@ export default class All extends React.Component {
   render () {
     return (
       <div className={styles.container}>
+        <h2>Accepted recipes</h2>
+        <div className='row'>
+          <div className='col-xs-6'>
+            <h3>ID</h3>
+          </div>
+          <div className='col-xs-6'>
+            <h3>Title</h3>
+          </div>
+        </div>
         {this.renderRecipes()}
       </div>
     )

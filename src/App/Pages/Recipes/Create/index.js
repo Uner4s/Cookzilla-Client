@@ -42,6 +42,7 @@ export default class Create extends React.Component {
   render () {
     return (
         <div className={styles.container}>
+          <h2>Create recipe</h2>
           <Form
             errorMessages={this.state.errorMessages}
             state={this.state}

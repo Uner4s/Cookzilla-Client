@@ -50,9 +50,12 @@ export default class Delete extends React.Component {
     return getAcceptedTools.map(tool => {
       return (
         <div key={tool._id} className='row'>
-          <div className='col-xs-12 col-sm-12'>
+          <div className='col-xs-6'>
+            {tool._id}
+          </div>
+          <div className='col-xs-6'>
             {tool.name}
-            <Button label='Delete' onClick={() => this.renderDelete(tool._id) }/>
+            <Button className='col-xs-6' label='Delete' onClick={() => this.renderDelete(tool._id) }/>
           </div>
         </div>
       )
@@ -63,6 +66,15 @@ export default class Delete extends React.Component {
   render () {
     return (
       <div className={styles.container}>
+        <h2>Tools</h2>
+        <div className='row'>
+          <div className='col-xs-6'>
+            <h3>ID</h3>
+          </div>
+          <div className='col-xs-6'>
+            <h3>Name</h3>
+          </div>
+        </div>
         {this.renderTools()}
       </div>
     )
