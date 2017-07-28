@@ -50,7 +50,8 @@ export default class Comments extends React.Component {
       return (
         <div key={comment._id} className='row' >
           <div className='col-xs-12 col-sm-12'>
-            {comment.author} : {comment.content}
+            <h3>{comment.author} </h3>
+            <p>{comment.content}</p>
           </div>
         </div>
       )

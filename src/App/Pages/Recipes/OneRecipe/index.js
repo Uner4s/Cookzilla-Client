@@ -51,19 +51,18 @@ export default class OneRecipe extends React.Component {
   renderRecipe () {
     const {oneRecipe} = this.props
     return (
-      <div key={oneRecipe._id} className='row' >
-        <div className='col-xs-12 col-sm-12'>
-          {oneRecipe.title} <br />
-          {oneRecipe.dificult} <br />
-          {oneRecipe.time} <br />
-          {oneRecipe.gloss} <br />
+      <div key={oneRecipe._id} className={styles.recipe} >
+        <div className='col-xs-12 col-u sm-12'>
+          <h2>Receta: {oneRecipe.title}</h2>
+          <h3>Dificultad: {oneRecipe.dificult}</h3>
+          <h3>Tiempo: {oneRecipe.time} minutos</h3>
+          <h4>Descripción:</h4>
+          <p>{oneRecipe.gloss}</p>
           <br /><br />
-          Tools:
-          {this.renderTools()}
-          <br /><br />
-          Ingredients: <br />
-          {this.renderIngredients()}
-          <br /><br />
+          <div className='row'>
+            <h4 className="col-xs-6" >Tools: <h5>{this.renderTools()}</h5></h4>
+            <h4 className="col-xs-6" >Ingredients: <h5>{this.renderIngredients()}</h5></h4>
+          </div>
           <Comments recipeId={oneRecipe._id}/>
         </div>
       </div>

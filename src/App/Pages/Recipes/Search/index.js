@@ -17,18 +17,20 @@ export default class Search extends React.Component {
 
   render () {
     return (
-      <div className={styles.container}>
-        <Form
-          state={this.state}
-          onChange={changes => this.setState(changes)}>
-          <Field fieldName='ingredients' label='Ingredients' type={ArrayComponent}>
-            <Field fieldName='name' label='name' type={Text} />
-          </Field>
-          <Field fieldName='tools' label='Tools' type={ArrayComponent}>
-            <Field fieldName='name' label='name' type={Text} />
-          </Field>
-        </Form>
-        <ShowRecipes ingredients={this.state.ingredients} tools={this.state.tools}/>
+      <div className='row '>
+        <div className={styles.container}>
+          <Form
+            state={this.state}
+            onChange={changes => this.setState(changes)}>
+            <Field fieldName='ingredients' label='Ingredients' type={ArrayComponent}>
+              <Field fieldName='name' label='name' type={Text} />
+            </Field>
+            <Field fieldName='tools' label='Tools' type={ArrayComponent}>
+              <Field fieldName='name' label='name' type={Text} />
+            </Field>
+          </Form>
+          <ShowRecipes ingredients={this.state.ingredients} tools={this.state.tools}/>
+        </div>
       </div>
     )
   }
