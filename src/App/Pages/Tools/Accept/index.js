@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './styles.css'
+//import styles from './styles.css'
 import withGraphQL from 'react-apollo-decorators/lib/withGraphQL'
 import gql from 'graphql-tag'
 import Button from 'orionsoft-parts/lib/components/Button'
@@ -8,6 +8,19 @@ import setGraphQLErrors from 'orionsoft-parts/lib/helpers/setGraphQLErrors'
 import withMutation from 'react-apollo-decorators/lib/withMutation'
 import autobind from 'autobind-decorator'
 import requireRole from 'orionsoft-parts/lib/decorators/requireRole'
+import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table'
+
+const styles = {
+  propContainer: {
+    width: 200,
+    overflow: 'hidden',
+    margin: '20px auto 0',
+  },
+  propToggleHeader: {
+    margin: '20px auto 10px',
+  },
+};
+
 
 @requireRole(['moderator'])
 // Show Pending Tools
@@ -40,7 +53,30 @@ export default class Accept extends React.Component {
     deleteTool: React.PropTypes.func
   }
   // Render
-  state = {}
+
+  state = {
+    fixedHeader: true,
+    fixedFooter: true,
+    stripedRows: false,
+    showRowHover: false,
+    selectable: true,
+    multiSelectable: false,
+    enableSelectAll: false,
+    deselectOnClickaway: true,
+    showCheckboxes: true,
+    height: '300px'
+  }
+
+  handleToggle = (event, toggled) => {
+    this.setState({
+      [event.target.name]: toggled
+    })
+  };
+
+  handleChange = (event) => {
+    this.setState({height: event.target.value})
+  }
+
   @autobind
   renderAccept (variable) {
     try {
@@ -54,7 +90,6 @@ export default class Accept extends React.Component {
     }
 
   }
-  state = {}
   @autobind
   renderReject (variable) {
     try {
@@ -69,38 +104,44 @@ export default class Accept extends React.Component {
 
   }
 
-  @autobind
-  renderPending () { // crear una función para luego llamarla y asi no llenar de codigo el return del render
+  renderTableRows () {
     const {pendingTools} = this.props
-    return pendingTools.map(tool => {
+    return pendingTools.map((row, index) => {
       return (
-        <div key={tool._id} className='row' >
-          <div className='col-xs-6'>
-            {tool._id}
-          </div>
-          <div className='col-xs-6'>
-            {tool.name}
-            <Button className='col-xs-6' label='Accept' onClick={() => this.renderAccept(tool._id) }/>
-            <Button className='col-xs-6' label='Reject' onClick={() => this.renderReject(tool._id) }/>
-          </div>
-        </div>
+        <TableRow key={index}>
+          <TableRowColumn>{row.name}</TableRowColumn>
+          <TableRowColumn>{row.status}</TableRowColumn>
+        </TableRow>
       )
     })
   }
   render () {
     return (
-      <div className={styles.container}>
-        <h2>Tools</h2>
-        <div className='row'>
-          <div className='col-xs-6'>
-            <h3>ID</h3>
-          </div>
-          <div className='col-xs-6'>
-            <h3>Name</h3>
-          </div>
+        <div>
+          <Table
+            height={this.state.height}
+            fixedHeader
+            fixedFooter={this.state.fixedFooter}
+            selectable={this.state.selectable}
+            multiSelectable={this.state.multiSelectable}>
+            <TableHeader
+              displaySelectAll={this.state.showCheckboxes}
+              adjustForCheckbox={this.state.showCheckboxes}
+              enableSelectAll={this.state.enableSelectAll}>
+              <TableRow>
+                <TableHeaderColumn tooltip="The Name">Name</TableHeaderColumn>
+                <TableHeaderColumn tooltip="The Status">Status</TableHeaderColumn>
+              </TableRow>
+            </TableHeader>
+            <TableBody
+              displayRowCheckbox={this.state.showCheckboxes}
+              deselectOnClickaway={this.state.deselectOnClickaway}
+              showRowHover={this.state.showRowHover}
+              stripedRows={this.state.stripedRows}>
+              {this.renderTableRows()}
+            </TableBody>
+          </Table>
         </div>
-        {this.renderPending()}
-      </div>
     )
   }
 

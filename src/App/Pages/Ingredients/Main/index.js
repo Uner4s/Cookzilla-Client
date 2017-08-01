@@ -25,34 +25,39 @@ export default class Main extends React.Component {
     console.log({getAcceptedIngredients})
     return getAcceptedIngredients.map(ingredient => {
       return (
-        <div key={ingredient._id} className='row'>
-          <div className='col-xs-6'>
-            {ingredient._id}
-          </div>
-          <div className='col-xs-6'>
-            {ingredient.name}
-          </div>
+        <div key={ingredient._id}>
+          <table className={styles.table}>
+            <tr className={styles.tr}>
+              <td className={styles.td}>{ingredient._id}</td>
+              <td className={styles.td}>{ingredient.name}</td>
+            </tr>
+          </table>
         </div>
       )
     })
   }
   render () {
-    console.log(this)
     return (
       <div className={styles.container}>
-        <h2>Ingredients</h2>
-        <div className='row'>
-          <div className='col-xs-6'>
-            <h3>ID</h3>
-          </div>
-          <div className='col-xs-6'>
-            <h3>Name</h3>
-          </div>
-        </div>
+        <h2>Accepted ingredients</h2>
+        <table className={styles.table}>
+          <tr className={styles.tr}>
+            <th className={styles.th}>Ingredient ID</th>
+            <th className={styles.th}>Ingredient name</th>
+          </tr>
+        </table>
         {this.renderIngredients()} <br></br>
-        <div className='row'>
-          <Button className='col-xs-6' to ='/ingredients/create' primary label='Create Ingredient'/>
-          <Button className='col-xs-6' to ='/ingredients/delete' primary label='Delete Ingredient'/>
+        <div className="row">
+          <div className="col-xs-2">
+            <div className="box">
+            <Button to='/ingredients/create' primary label='Create ingredient'/>
+            </div>
+          </div>
+          <div className="col-xs-2">
+            <div className="box">
+            <Button to='/ingredients/delete' primary label='Delete ingredient'/>
+           </div>
+          </div>
         </div>
       </div>
     )

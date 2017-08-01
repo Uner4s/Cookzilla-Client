@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './styles.css'
-import Navbar from '../../components/Navbar'
+import Navbar from 'src/App/components/Navbar'
 export default class Layout extends React.Component {
   static propTypes = {
     children: React.PropTypes.node
@@ -8,10 +8,8 @@ export default class Layout extends React.Component {
 
   render () {
     return (
-      <div className={styles.container}>
-
-        <Navbar logo='logo.jpg'/>
-
+      <div>
+        <Navbar logo='/logo.jpg'/>
         {this.props.children}
       </div>
     )

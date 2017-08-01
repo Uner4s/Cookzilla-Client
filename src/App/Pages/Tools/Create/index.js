@@ -38,7 +38,7 @@ export default class Create extends React.Component {
     console.log(this.state)
     return (
       <div className={styles.container}>
-        <h2>Create Tool</h2>
+        <h2>Create tool</h2>
         <Form
           errorMessages={this.state.errorMessages}
           state={this.state}

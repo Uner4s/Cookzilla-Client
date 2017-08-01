@@ -11,7 +11,7 @@ import ShowRecipes from './ShowRecipes'
 export default class Search extends React.Component {
 
   static propTypes = {
-    
+
   }
 
   state = {
@@ -32,8 +32,8 @@ export default class Search extends React.Component {
       variables: {search}
     })
     return uniq(items.map(item => item.name))
-  }
-*/
+  }*/
+
   render () {
     return (
       <div className='row center-xs '>

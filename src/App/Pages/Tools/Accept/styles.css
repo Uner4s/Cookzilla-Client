@@ -1,8 +1,35 @@
 :local(.container) {
-  background-color: white;
   margin-left: 40px;
   margin-right: 40px;
   margin-top: 20px;
   margin-bottom: 20px;
   font-family: Helvetica;
+}
+
+:local(.table) {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+:local(.tr) {
+
+}
+
+:local(.th) {
+  background-color: #5F9EA0;
+  width: 25%;
+  table-layout: fixed;
+  border: 1px solid #5F9EA0;
+  text-align: left;
+  padding: 8px
+
+}
+
+:local(.td) {
+  border: 1px solid #5F9EA0;
+  text-align: left;
+  padding: 8px;
+  table-layout: fixed;
+  width: 25%;
 }

@@ -46,16 +46,16 @@ export default class All extends React.Component {
     const {getAcceptedRecipes} = this.props
     return getAcceptedRecipes.map(recipe => {
       return (
-        <div key={recipe._id} className='row'>
-            <div className='col-xs-6'>
-              {recipe._id}
-            </div>
-            <div className='col-xs-6'>
-              {recipe.title}
-              <Button className='col-xs-6' to={`/recipes/onerecipe/${recipe._id}`} label='View'/>
-              <Button className='col-xs-6' label='Delete' onClick={() => this.renderDelete(recipe._id)}/>
-            </div>
-        </div>
+        <div key={recipe._id} >
+            <table className={styles.table}>
+              <tr className={styles.tr}>
+                <td className={styles.td}>{recipe._id}</td>
+                <td className={styles.td}>{recipe.title}</td>
+                <td className={styles.td}><Button to={`/recipes/onerecipe/${recipe._id}`} label='View'/></td>
+                <td className={styles.td}><Button label='Delete' onClick={() => this.renderDelete(recipe._id)}/></td>
+              </tr>
+          </table>
+          </div>
       )
     })
   }
@@ -64,14 +64,14 @@ export default class All extends React.Component {
     return (
       <div className={styles.container}>
         <h2>Accepted recipes</h2>
-        <div className='row'>
-          <div className='col-xs-6'>
-            <h3>ID</h3>
-          </div>
-          <div className='col-xs-6'>
-            <h3>Title</h3>
-          </div>
-        </div>
+        <table className={styles.table}>
+          <tr className={styles.tr}>
+            <th className={styles.th}>Recipe ID</th>
+            <th className={styles.th}>Recipe title</th>
+            <th className={styles.th}>View recipe</th>
+            <th className={styles.th}>Delete recipe</th>
+          </tr>
+      </table>
         {this.renderRecipes()}
       </div>
     )

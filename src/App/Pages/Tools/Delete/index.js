@@ -50,33 +50,38 @@ export default class Delete extends React.Component {
     const {getAcceptedTools} = this.props
     return getAcceptedTools.map(tool => {
       return (
-        <div key={tool._id} className='row'>
-          <div className='col-xs-6'>
-            {tool._id}
-          </div>
-          <div className='col-xs-6'>
-            {tool.name}
-            <Button className='col-xs-6' label='Delete' onClick={() => this.renderDelete(tool._id) }/>
-          </div>
+        <div key={tool._id}>
+          <table className={styles.table}>
+            <tr className={styles.tr}>
+              <td className={styles.td}>{tool._id}</td>
+              <td className={styles.td}>{tool.name}</td>
+              <td className={styles.td}><Button label='Delete' onClick={() => this.renderDelete(tool._id) }/></td>
+            </tr>
+          </table>
         </div>
       )
     })
-
   }
 
   render () {
     return (
       <div className={styles.container}>
         <h2>Tools</h2>
-        <div className='row'>
-          <div className='col-xs-6'>
-            <h3>ID</h3>
-          </div>
-          <div className='col-xs-6'>
-            <h3>Name</h3>
+        <table className={styles.table}>
+          <tr className={styles.tr}>
+            <th className={styles.th}>Tool ID</th>
+            <th className={styles.th}>Tool name</th>
+            <th className={styles.th}>Delete tool</th>
+          </tr>
+      </table>
+        {this.renderTools()}<br></br>
+        <div className="row">
+          <div className="col-xs-2">
+            <div className="box">
+            <Button to='/tools' primary label='Tools'/>
+            </div>
           </div>
         </div>
-        {this.renderTools()}
       </div>
     )
   }

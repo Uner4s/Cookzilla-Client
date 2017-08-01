@@ -3,6 +3,7 @@ import apolloClient from './apollo'
 import { ApolloProvider } from 'react-apollo'
 import OrionsoftProvider from 'orionsoft-parts/lib/components/Provider'
 import './locale'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
 export default class Root extends React.Component {
   static propTypes = {
@@ -13,7 +14,9 @@ export default class Root extends React.Component {
     return (
       <ApolloProvider client={apolloClient}>
         <OrionsoftProvider>
-          {this.props.children}
+          <MuiThemeProvider>
+            {this.props.children}
+          </MuiThemeProvider>
         </OrionsoftProvider>
       </ApolloProvider>
     )
