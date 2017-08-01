@@ -2,13 +2,14 @@ import React from 'react'
 import styles from './styles.css'
 import withGraphQL from 'react-apollo-decorators/lib/withGraphQL'
 import gql from 'graphql-tag'
-import {Form, Field} from 'simple-react-form'
 import Button from 'orionsoft-parts/lib/components/Button'
 import withMessage from 'orionsoft-parts/lib/decorators/withMessage'
 import setGraphQLErrors from 'orionsoft-parts/lib/helpers/setGraphQLErrors'
 import withMutation from 'react-apollo-decorators/lib/withMutation'
 import autobind from 'autobind-decorator'
+import requireRole from 'orionsoft-parts/lib/decorators/requireRole'
 
+@requireRole(['moderator', 'admin'])
 // Accepted Tools
 @withGraphQL(gql`query getAcceptedTools{
   getAcceptedTools{

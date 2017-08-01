@@ -9,6 +9,9 @@ import setGraphQLErrors from 'orionsoft-parts/lib/helpers/setGraphQLErrors'
 import Text from 'orionsoft-parts/lib/components/fields/Text'
 import Button from 'orionsoft-parts/lib/components/Button'
 import autobind from 'autobind-decorator'
+import requireRole from 'orionsoft-parts/lib/decorators/requireRole'
+
+@requireRole(['colaborator', 'admin', 'moderator'])
 
 @withGraphQL(gql`query commentRecipes($recipeId: ID!){
   commentRecipes(_id: $recipeId){

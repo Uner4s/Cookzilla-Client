@@ -3,6 +3,9 @@ import styles from './styles.css'
 import withGraphQL from 'react-apollo-decorators/lib/withGraphQL'
 import gql from 'graphql-tag'
 import Button from 'orionsoft-parts/lib/components/Button'
+import requireRole from 'orionsoft-parts/lib/decorators/requireRole'
+
+@requireRole(['moderator', 'admin'])
 
 // Crear la funcion getTools para ocupar lata query getTools
 @withGraphQL(gql`query getAcceptedTools{

@@ -9,6 +9,9 @@ import ArrayComponent from 'orionsoft-parts/lib/components/fields/ArrayComponent
 import withMessage from 'orionsoft-parts/lib/decorators/withMessage'
 import setGraphQLErrors from 'orionsoft-parts/lib/helpers/setGraphQLErrors'
 import autobind from 'autobind-decorator'
+import requireRole from 'orionsoft-parts/lib/decorators/requireRole'
+
+@requireRole(['colaborator'])
 
 @withMessage
 @withMutation(gql`mutation addRecipe($recipe: RecipeInput){

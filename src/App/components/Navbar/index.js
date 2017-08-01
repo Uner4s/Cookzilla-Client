@@ -12,6 +12,7 @@ export default class Navbar extends React.Component {
   renderLogo () {
     return <Link to='/'><img height={44} src={this.props.logo} alt='Logo' className='os_navbar-logo' /></Link>
   }
+  // create classes
 
   render () {
     return (
@@ -22,16 +23,7 @@ export default class Navbar extends React.Component {
               <div className="col-xs-2">
                   <div className="box">
                       {this.renderLogo()}
-                  </div>
-              </div>
-              <div className="col-xs-2" style={{height: '50%'}}>
-                  <div className="box">
-                    <Container><li><a href="#">Page 1</a></li></Container>
-                  </div>
-              </div>
-              <div className="col-xs-2">
-                  <div className="box">
-                      3
+                      <div id="navbar"></div>
                   </div>
               </div>
           </div>

@@ -15,17 +15,13 @@ export default class ShowRecipes extends React.Component {
   static propTypes = {
     advanceRecipeSearch: React.PropTypes.func
   }
-  renderRecipe (variable) {
-    // console.log(variable)//onClick={() => this.renderRecipe(recipe._id)
-    // window.location =
-  }
 
   renderFind () {
     const {advanceRecipeSearch} = this.props
     return advanceRecipeSearch.map(recipe => {
       return (
         <div key={recipe._id} className='row' >
-          <div className='col-xs-12 col-sm-12'>
+          <div className='col-xs'>
             {recipe.title} <Button to={`/recipes/onerecipe/${recipe._id}`} label='View'/>
           </div>
         </div>
@@ -34,9 +30,9 @@ export default class ShowRecipes extends React.Component {
   }
 
   render () {
-    console.log(this)
     return (
       <div className={styles.container}>
+        <br />
         <h2>Titles of Recipes</h2> <br></br>
         {this.renderFind()}
       </div>

@@ -7,9 +7,9 @@ import withMessage from 'orionsoft-parts/lib/decorators/withMessage'
 import setGraphQLErrors from 'orionsoft-parts/lib/helpers/setGraphQLErrors'
 import withMutation from 'react-apollo-decorators/lib/withMutation'
 import autobind from 'autobind-decorator'
-//import requireRole from 'orionsoft-parts/lib/decorators/requireRole'
+import requireRole from 'orionsoft-parts/lib/decorators/requireRole'
 
-//@requireRole(['moderator'])
+@requireRole(['moderator'])
 
 // Pending Recipes to Accept
 @withGraphQL(gql`query pendingRecipes{
