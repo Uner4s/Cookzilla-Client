@@ -60,10 +60,10 @@ export default class Accept extends React.Component {
     stripedRows: false,
     showRowHover: false,
     selectable: true,
+    showCheckboxes: false,
     multiSelectable: false,
     enableSelectAll: false,
-    deselectOnClickaway: true,
-    showCheckboxes: true,
+    deselectOnClickaway: false,
     height: '300px'
   }
 
@@ -109,8 +109,9 @@ export default class Accept extends React.Component {
     return pendingTools.map((row, index) => {
       return (
         <TableRow key={index}>
+          <TableRowColumn>{index}</TableRowColumn>
           <TableRowColumn>{row.name}</TableRowColumn>
-          <TableRowColumn>{row.status}</TableRowColumn>
+          <TableRowColumn>{'Accepted'}</TableRowColumn>
         </TableRow>
       )
     })
@@ -120,22 +121,23 @@ export default class Accept extends React.Component {
         <div>
           <Table
             height={this.state.height}
-            fixedHeader
+            fixedHeader={this.state.fixedHeader}
             fixedFooter={this.state.fixedFooter}
             selectable={this.state.selectable}
             multiSelectable={this.state.multiSelectable}>
             <TableHeader
               displaySelectAll={this.state.showCheckboxes}
               adjustForCheckbox={this.state.showCheckboxes}
-              enableSelectAll={this.state.enableSelectAll}>
+              enableSelectAll={this.state.enableSelectAll}
+              >
               <TableRow>
+                <TableHeaderColumn tooltip="The Number">Number</TableHeaderColumn>
                 <TableHeaderColumn tooltip="The Name">Name</TableHeaderColumn>
                 <TableHeaderColumn tooltip="The Status">Status</TableHeaderColumn>
               </TableRow>
             </TableHeader>
             <TableBody
               displayRowCheckbox={this.state.showCheckboxes}
-              deselectOnClickaway={this.state.deselectOnClickaway}
               showRowHover={this.state.showRowHover}
               stripedRows={this.state.stripedRows}>
               {this.renderTableRows()}
