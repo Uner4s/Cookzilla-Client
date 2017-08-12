@@ -1,26 +1,15 @@
 import React from 'react'
-//import styles from './styles.css'
+import styles from './styles.css'
 import withGraphQL from 'react-apollo-decorators/lib/withGraphQL'
 import gql from 'graphql-tag'
 import Button from 'orionsoft-parts/lib/components/Button'
+import ButtonUI from './Button'
 import withMessage from 'orionsoft-parts/lib/decorators/withMessage'
 import setGraphQLErrors from 'orionsoft-parts/lib/helpers/setGraphQLErrors'
 import withMutation from 'react-apollo-decorators/lib/withMutation'
 import autobind from 'autobind-decorator'
 import requireRole from 'orionsoft-parts/lib/decorators/requireRole'
 import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table'
-
-const styles = {
-  propContainer: {
-    width: 200,
-    overflow: 'hidden',
-    margin: '20px auto 0',
-  },
-  propToggleHeader: {
-    margin: '20px auto 10px',
-  },
-};
-
 
 @requireRole(['moderator'])
 // Show Pending Tools
@@ -111,14 +100,16 @@ export default class Accept extends React.Component {
         <TableRow key={index}>
           <TableRowColumn>{index}</TableRowColumn>
           <TableRowColumn>{row.name}</TableRowColumn>
-          <TableRowColumn>{'Accepted'}</TableRowColumn>
+          <TableRowColumn>{'Pending'}</TableRowColumn>
+          <TableRowColumn><Button className='col-xs-6' label='Accept' onClick={() => this.renderAccept(row._id) }/></TableRowColumn>
+          <TableRowColumn> <Button className='col-xs-6' label='Reject' onClick={() => this.renderReject(row._id) }/></TableRowColumn>
         </TableRow>
       )
     })
   }
   render () {
     return (
-        <div>
+        <div className={styles.container}>
           <Table
             height={this.state.height}
             fixedHeader={this.state.fixedHeader}
@@ -134,6 +125,8 @@ export default class Accept extends React.Component {
                 <TableHeaderColumn tooltip="The Number">Number</TableHeaderColumn>
                 <TableHeaderColumn tooltip="The Name">Name</TableHeaderColumn>
                 <TableHeaderColumn tooltip="The Status">Status</TableHeaderColumn>
+                <TableHeaderColumn tooltip="The Accept">Accept</TableHeaderColumn>
+                <TableHeaderColumn tooltip="The Reject">Reject</TableHeaderColumn>
               </TableRow>
             </TableHeader>
             <TableBody
@@ -143,6 +136,7 @@ export default class Accept extends React.Component {
               {this.renderTableRows()}
             </TableBody>
           </Table>
+          <ButtonUI />
         </div>
     )
   }
