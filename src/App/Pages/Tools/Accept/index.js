@@ -9,6 +9,7 @@ import setGraphQLErrors from 'orionsoft-parts/lib/helpers/setGraphQLErrors'
 import withMutation from 'react-apollo-decorators/lib/withMutation'
 import autobind from 'autobind-decorator'
 import requireRole from 'orionsoft-parts/lib/decorators/requireRole'
+import PropTypes from 'prop-types'
 import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table'
 
 @requireRole(['moderator'])
@@ -36,10 +37,10 @@ import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColu
 export default class Accept extends React.Component {
 
   static propTypes = {
-    pendingTools: React.PropTypes.func,
-    stateTool: React.PropTypes.func,
-    showMessage: React.PropTypes.func,
-    deleteTool: React.PropTypes.func
+    pendingTools: PropTypes.func,
+    stateTool: PropTypes.func,
+    showMessage: PropTypes.func,
+    deleteTool: PropTypes.func
   }
   // Render
 
@@ -136,7 +137,6 @@ export default class Accept extends React.Component {
               {this.renderTableRows()}
             </TableBody>
           </Table>
-          <ButtonUI />
         </div>
     )
   }
