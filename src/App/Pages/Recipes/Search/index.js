@@ -18,21 +18,6 @@ export default class Search extends React.Component {
     ingredients: [],
     tools: []
   }
-/*
-  @autobind
-  async getNameAutocomplete (search) {
-    const {data: {transactions: {items}}} = await this.props.client.query({
-      query: gql`query getNameAutocomplete ($search: String) {
-          transactions (filter: $search expense: false) {
-            items {
-              name
-            }
-          }
-        }`,
-      variables: {search}
-    })
-    return uniq(items.map(item => item.name))
-  }*/
 
   render () {
     return (
