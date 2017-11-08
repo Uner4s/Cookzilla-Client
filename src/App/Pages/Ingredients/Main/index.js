@@ -4,25 +4,25 @@ import withGraphQL from 'react-apollo-decorators/lib/withGraphQL'
 import gql from 'graphql-tag'
 import Button from 'orionsoft-parts/lib/components/Button'
 import requireRole from 'orionsoft-parts/lib/decorators/requireRole'
+import PropTypes from 'prop-types'
 
 @requireRole(['moderator', 'admin'])
-
-@withGraphQL(gql`query getAcceptedIngredients{
-  getAcceptedIngredients{
-    _id
-    name
+@withGraphQL(gql`
+  query getAcceptedIngredients {
+    getAcceptedIngredients {
+      _id
+      name
+    }
   }
-}`)
-
+`)
 export default class Main extends React.Component {
-
   static propTypes = {
-    getAcceptedIngredients: React.PropTypes.func
+    getAcceptedIngredients: PropTypes.func
   }
 
   renderIngredients () {
-    const {getAcceptedIngredients} = this.props
-    console.log({getAcceptedIngredients})
+    const { getAcceptedIngredients } = this.props
+    console.log({ getAcceptedIngredients })
     return getAcceptedIngredients.map(ingredient => {
       return (
         <div key={ingredient._id}>
@@ -46,17 +46,25 @@ export default class Main extends React.Component {
             <th className={styles.th}>Ingredient name</th>
           </tr>
         </table>
-        {this.renderIngredients()} <br></br>
+        {this.renderIngredients()} <br />
         <div className="row">
           <div className="col-xs-2">
             <div className="box">
-            <Button to='/ingredients/create' primary label='Create ingredient'/>
+              <Button
+                to="/ingredients/create"
+                primary
+                label="Create ingredient"
+              />
             </div>
           </div>
           <div className="col-xs-2">
             <div className="box">
-            <Button to='/ingredients/delete' primary label='Delete ingredient'/>
-           </div>
+              <Button
+                to="/ingredients/delete"
+                primary
+                label="Delete ingredient"
+              />
+            </div>
           </div>
         </div>
       </div>

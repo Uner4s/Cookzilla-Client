@@ -3,15 +3,16 @@ import Translate from 'App/i18n'
 import { verifyEmail } from 'meteor-apollo-accounts'
 import autobind from 'autobind-decorator'
 import { withApollo } from 'react-apollo'
+import PropTypes from 'prop-types'
 
 @withApollo
 export default class VerifyEmail extends React.Component {
   static propTypes = {
-    setLoading: React.PropTypes.func,
-    isLoading: React.PropTypes.bool,
-    token: React.PropTypes.string,
-    onSuccess: React.PropTypes.func,
-    client: React.PropTypes.object
+    setLoading: PropTypes.func,
+    isLoading: PropTypes.bool,
+    token: PropTypes.string,
+    onSuccess: PropTypes.func,
+    client: PropTypes.object
   }
 
   state = {}
@@ -20,7 +21,8 @@ export default class VerifyEmail extends React.Component {
     this.verify()
   }
 
-  @autobind async verify () {
+  @autobind
+  async verify () {
     try {
       this.props.setLoading(true)
       await verifyEmail({ token: this.props.token }, this.props.client)
@@ -35,11 +37,7 @@ export default class VerifyEmail extends React.Component {
 
   render () {
     if (this.state.error) {
-      return (
-        <div className="center-align">
-          {this.state.error}
-        </div>
-      )
+      return <div className="center-align">{this.state.error}</div>
     } else {
       return (
         <div className="center-align">

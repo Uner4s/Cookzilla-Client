@@ -3,19 +3,21 @@ import styles from './styles.css'
 import Logo from './Logo'
 import autobind from 'autobind-decorator'
 import { withRouter } from 'react-router'
+import PropTypes from 'prop-types'
 
 @withRouter
 export default class Layout extends React.Component {
   state = { isLoading: false, error: null }
 
   static propTypes = {
-    children: React.PropTypes.any,
-    location: React.PropTypes.object,
-    router: React.PropTypes.object,
-    params: React.PropTypes.object
+    children: PropTypes.any,
+    location: PropTypes.object,
+    router: PropTypes.object,
+    params: PropTypes.object
   }
 
-  @autobind onSuccess () {
+  @autobind
+  onSuccess () {
     const { location } = this.props
     if (location.state && location.state.nextPathname) {
       this.props.router.replace(location.state.nextPathname)
@@ -49,11 +51,7 @@ export default class Layout extends React.Component {
 
   renderError () {
     if (!this.state.error) return
-    return (
-      <div className={styles.error}>
-        {this.state.error}
-      </div>
-    )
+    return <div className={styles.error}>{this.state.error}</div>
   }
 
   render () {

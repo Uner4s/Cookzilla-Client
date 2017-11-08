@@ -1,9 +1,10 @@
 import React from 'react'
 import styles from './styles.css'
+import PropTypes from 'prop-types'
 
 export default class Stars extends React.Component {
   static propTypes = {
-    children: React.PropTypes.node
+    children: PropTypes.node
   }
 
   render () {
@@ -13,9 +14,7 @@ export default class Stars extends React.Component {
           <div className={styles.stars1} />
           <div className={styles.stars2} />
           <div className={styles.stars3} />
-          <div className={styles.logoContainer}>
-            {this.props.children}
-          </div>
+          <div className={styles.logoContainer}>{this.props.children}</div>
         </div>
       </div>
     )

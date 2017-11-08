@@ -36,10 +36,13 @@
     "uikit": "^3.0.0-beta.27"
   },
   "scripts": {
-    "start": "./node_modules/orionsoft-react-scripts/bin/react-scripts.js start",
+    "start":
+      "./node_modules/orionsoft-react-scripts/bin/react-scripts.js start",
     "start:watch": "watch npm\\ start ./node_modules/orionsoft-react-scripts",
-    "build": "./node_modules/orionsoft-react-scripts/bin/react-scripts.js build",
-    "test": "./node_modules/orionsoft-react-scripts/bin/react-scripts.js test --env=jsdom",
+    "build":
+      "./node_modules/orionsoft-react-scripts/bin/react-scripts.js build",
+    "test":
+      "./node_modules/orionsoft-react-scripts/bin/react-scripts.js test --env=jsdom",
     "eject": "./node_modules/orionsoft-react-scripts/bin/react-scripts.js eject"
   }
 }

@@ -8,19 +8,21 @@ import styles from './styles.css'
 import autobind from 'autobind-decorator'
 import { forgotPassword } from 'meteor-apollo-accounts'
 import { withApollo } from 'react-apollo'
+import PropTypes from 'prop-types'
 
 @withApollo
 export default class Forgot extends React.Component {
   state = {}
 
   static propTypes = {
-    setLoading: React.PropTypes.func,
-    isLoading: React.PropTypes.bool,
-    setError: React.PropTypes.func,
-    client: React.PropTypes.object
+    setLoading: PropTypes.func,
+    isLoading: PropTypes.bool,
+    setError: PropTypes.func,
+    client: PropTypes.object
   }
 
-  @autobind async send () {
+  @autobind
+  async send () {
     if (!this.canSend()) return
     this.props.setLoading(true)
     this.props.setError(null)

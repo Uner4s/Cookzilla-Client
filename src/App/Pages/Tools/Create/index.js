@@ -1,25 +1,26 @@
 import React from 'react'
 import styles from './styles.css'
-import {Form, Field} from 'simple-react-form'
+import { Form, Field } from 'simple-react-form'
 import Text from 'orionsoft-parts/lib/components/fields/Text'
 import withMutation from 'react-apollo-decorators/lib/withMutation'
 import Button from 'orionsoft-parts/lib/components/Button'
 import gql from 'graphql-tag'
 import withMessage from 'orionsoft-parts/lib/decorators/withMessage'
 import setGraphQLErrors from 'orionsoft-parts/lib/helpers/setGraphQLErrors'
+import PropTypes from 'prop-types'
 
 @withMessage
-@withMutation(gql`mutation createTool($name: String!){
-  createTool(name: $name){
-    _id
+@withMutation(gql`
+  mutation createTool($name: String!) {
+    createTool(name: $name) {
+      _id
+    }
   }
-}`)
-
+`)
 export default class Create extends React.Component {
-
   static propTypes = {
-    createTool: React.PropTypes.func,
-    showMessage: React.PropTypes.func
+    createTool: PropTypes.func,
+    showMessage: PropTypes.func
   }
 
   state = {}
@@ -42,12 +43,16 @@ export default class Create extends React.Component {
         <Form
           errorMessages={this.state.errorMessages}
           state={this.state}
-          onChange={changes => this.setState(changes)}>
-          <Field fieldName='name' label='name' type={Text} />
+          onChange={changes => this.setState(changes)}
+        >
+          <Field fieldName="name" label="name" type={Text} />
         </Form>
-        <Button className='col-xs-6' label='Save' onClick={() => this.createTool()}/>
+        <Button
+          className="col-xs-6"
+          label="Save"
+          onClick={() => this.createTool()}
+        />
       </div>
     )
   }
-
 }

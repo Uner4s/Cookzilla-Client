@@ -1,20 +1,21 @@
 import React from 'react'
 import styles from './styles.css'
 import _ from 'underscore'
+import PropTypes from 'prop-types'
 
 export default class Button extends React.Component {
   static propTypes = {
-    to: React.PropTypes.string,
-    linkButton: React.PropTypes.bool,
-    label: React.PropTypes.any,
-    children: React.PropTypes.any,
-    primary: React.PropTypes.bool,
-    danger: React.PropTypes.bool,
-    big: React.PropTypes.bool,
-    style: React.PropTypes.object,
-    disabled: React.PropTypes.bool,
-    loading: React.PropTypes.bool,
-    fullWidth: React.PropTypes.bool
+    to: PropTypes.string,
+    linkButton: PropTypes.bool,
+    label: PropTypes.any,
+    children: PropTypes.any,
+    primary: PropTypes.bool,
+    danger: PropTypes.bool,
+    big: PropTypes.bool,
+    style: PropTypes.object,
+    disabled: PropTypes.bool,
+    loading: PropTypes.bool,
+    fullWidth: PropTypes.bool
   }
 
   static defaultProps = {
@@ -72,22 +73,14 @@ export default class Button extends React.Component {
   }
 
   renderLinkButton () {
-    return (
-      <a {...this.getChildProps()}>
-        {this.renderButton()}
-      </a>
-    )
+    return <a {...this.getChildProps()}>{this.renderButton()}</a>
   }
 
   render () {
     if (this.props.linkButton || this.props.href || this.props.to) {
       return this.renderLinkButton()
     } else {
-      return (
-        <span {...this.getChildProps()}>
-          {this.renderButton()}
-        </span>
-      )
+      return <span {...this.getChildProps()}>{this.renderButton()}</span>
     }
   }
 }

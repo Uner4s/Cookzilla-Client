@@ -1,10 +1,11 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 export default function (ComposedComponent) {
   return class WithLanguage extends React.Component {
     static contextTypes = {
-      language: React.PropTypes.string,
-      setLanguage: React.PropTypes.func
+      language: PropTypes.string,
+      setLanguage: PropTypes.func
     }
 
     shouldComponentUpdate (nextProps, nextState, nextContext) {

@@ -1,13 +1,14 @@
 import React from 'react'
 import styles from './styles.css'
+import PropTypes from 'prop-types'
 
 export default class Text extends React.Component {
   static propTypes = {
-    onChange: React.PropTypes.func,
-    value: React.PropTypes.string,
-    fieldType: React.PropTypes.string,
-    passProps: React.PropTypes.object,
-    placeholder: React.PropTypes.node,
+    onChange: PropTypes.func,
+    value: PropTypes.string,
+    fieldType: PropTypes.string,
+    passProps: PropTypes.object,
+    placeholder: PropTypes.node
   }
 
   static defaultProps = {

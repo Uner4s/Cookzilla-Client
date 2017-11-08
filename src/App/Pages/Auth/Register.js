@@ -10,20 +10,22 @@ import { createUser } from 'meteor-apollo-accounts'
 import TOS from './TOS'
 // import Social from './Social'
 import { withApollo } from 'react-apollo'
+import PropTypes from 'prop-types'
 
 @withApollo
 export default class Register extends React.Component {
   state = {}
 
   static propTypes = {
-    setLoading: React.PropTypes.func,
-    setError: React.PropTypes.func,
-    onSuccess: React.PropTypes.func,
-    isLoading: React.PropTypes.bool,
-    client: React.PropTypes.object
+    setLoading: PropTypes.func,
+    setError: PropTypes.func,
+    onSuccess: PropTypes.func,
+    isLoading: PropTypes.bool,
+    client: PropTypes.object
   }
 
-  @autobind async login () {
+  @autobind
+  async login () {
     if (this.state.password !== this.state.confirm) {
       return this.props.setError(
         <Translate tr="auth.pages.passwordDoesntMatch" />
@@ -71,14 +73,16 @@ export default class Register extends React.Component {
             fieldType="email"
             placeholder={translate('auth.pages.email')}
           />
-          <br /><br />
+          <br />
+          <br />
           <Field
             fieldName="password"
             type={Text}
             fieldType="password"
             placeholder={translate('auth.pages.password')}
           />
-          <br /><br />
+          <br />
+          <br />
           <Field
             fieldName="confirm"
             type={Text}

@@ -8,20 +8,22 @@ import styles from './styles.css'
 import autobind from 'autobind-decorator'
 import { resetPassword } from 'meteor-apollo-accounts'
 import { withApollo } from 'react-apollo'
+import PropTypes from 'prop-types'
 
 @withApollo
 export default class Reset extends React.Component {
   state = {}
 
   static propTypes = {
-    setLoading: React.PropTypes.func,
-    setError: React.PropTypes.func,
-    onSuccess: React.PropTypes.func,
-    token: React.PropTypes.string,
-    client: React.PropTypes.object
+    setLoading: PropTypes.func,
+    setError: PropTypes.func,
+    onSuccess: PropTypes.func,
+    token: PropTypes.string,
+    client: PropTypes.object
   }
 
-  @autobind async reset () {
+  @autobind
+  async reset () {
     if (this.state.newPassword !== this.state.confirm) {
       return this.props.setError(<Translate tr="auth.reset.doesntMatch" />)
     }
@@ -62,7 +64,8 @@ export default class Reset extends React.Component {
             fieldType="password"
             placeholder={translate('auth.reset.newPassword')}
           />
-          <br /><br />
+          <br />
+          <br />
           <Field
             fieldName="confirm"
             type={Text}

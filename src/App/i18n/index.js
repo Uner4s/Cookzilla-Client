@@ -2,13 +2,14 @@ import React from 'react'
 import translate from './translate'
 import withLanguage from './withLanguage'
 import omit from 'lodash/omit'
+import PropTypes from 'prop-types'
 
 @withLanguage
 export default class Translate extends React.Component {
   static propTypes = {
-    tr: React.PropTypes.string.isRequired,
-    html: React.PropTypes.bool,
-    language: React.PropTypes.string
+    tr: PropTypes.string.isRequired,
+    html: PropTypes.bool,
+    language: PropTypes.string
   }
 
   static defaultProps = {
@@ -38,10 +39,6 @@ export default class Translate extends React.Component {
   }
 
   render () {
-    return (
-      <span>
-        {this.renderText()}
-      </span>
-    )
+    return <span>{this.renderText()}</span>
   }
 }
