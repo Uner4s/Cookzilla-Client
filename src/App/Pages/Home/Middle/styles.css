@@ -1,0 +1,29 @@
+:local(.container) {
+  position: relative;
+  margin-bottom: 100px;
+  margin-top: 200px;
+  height: 500px !important;
+}
+
+:local(.icons) {
+  margin-left: 200px;
+  margin-right: 200px;
+}
+
+:local(.logo) {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+}
+
+:local(.logo > img) {
+  height: 250px;
+}
+
+:local(.text) {
+  padding-top: 50px;
+  font-family: sans-serif !important;
+  font-size: 20px;
+  color: #5a5555;
+  text-align: center;
+}

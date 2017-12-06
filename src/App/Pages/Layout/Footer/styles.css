@@ -1,3 +1,34 @@
 :local(.container) {
+  height: 450px;
+  background-color: #4e4c4c;
+}
 
+:local(.footer) {
+  padding-top: 100px;
+}
+
+:local(.title) {
+  color: #ffffff;
+  font-size: 25px;
+  margin-bottom: 15px;
+}
+:local(.links) {
+}
+
+:local(.link) {
+  display: block;
+  position: relative;
+  top: 1px;
+  margin-right: 20px;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+:local(.logo) {
+  text-align: center;
+  padding-top: 90px;
+}
+
+:local(.logo > img) {
+  height: 40px;
 }

@@ -1,0 +1,43 @@
+:local(.container) {
+  position: relative;
+  margin-bottom: 100px;
+  margin-top: 55px;
+  height: 986px !important;
+  background-image: url('https://s3.amazonaws.com/orionsoft-tests/static/fweDg2TrbY_Fondo.png');
+}
+
+:local(.title) {
+  display: flex;
+  color: #ffffff;
+  padding-top: 200px;
+  position: relative;
+  font-size: 50px;
+  max-width: 500px;
+  font-family: sans-serif !important;
+}
+
+:local(.superTitle) {
+  color: #ffffff;
+  position: relative;
+  font-size: 75px;
+  max-width: 800px;
+  font-family: sans-serif !important;
+}
+
+:local(.subtitle) {
+  color: #ffffff;
+  position: relative;
+  font-size: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  max-width: 800px;
+  font-family: sans-serif !important;
+}
+
+:local(.form) {
+}
+
+:local(.button > span) {
+  background-color: #5a5555 !important;
+  color: white !important;
+}
