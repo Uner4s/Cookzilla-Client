@@ -110,8 +110,8 @@ export default class Footer extends React.Component {
     )
   }
 
-  renderLogo(){
-    return(
+  renderLogo() {
+    return (
       <div className={styles.logo}>
         <img src="images/Cookzilla4.png" alt="Logo4" />
       </div>

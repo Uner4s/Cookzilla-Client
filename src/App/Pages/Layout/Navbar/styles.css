@@ -33,6 +33,7 @@
 :local(.logo > img) {
   height: 40px;
   margin-right: 20px;
+  cursor: pointer;
 }
 
 :local(.content) {
@@ -51,4 +52,5 @@
   margin-right: 20px;
   padding-bottom: 3px;
   border-bottom: 2px solid transparent;
+  cursor: pointer;
 }

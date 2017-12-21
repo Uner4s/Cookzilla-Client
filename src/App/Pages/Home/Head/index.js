@@ -20,7 +20,7 @@ export default class Head extends React.Component {
         <Container>
           <div className={styles.title}>The most advance</div>
           <div className={styles.superTitle}>
-            <b>Food Search!</b>
+            <b>Kitchen Recipes Search!</b>
           </div>
           <div className={styles.subtitle}>
             For more information, please contact us !

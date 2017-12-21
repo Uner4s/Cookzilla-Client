@@ -19,7 +19,7 @@
 :local(.superTitle) {
   color: #ffffff;
   position: relative;
-  font-size: 75px;
+  font-size: 65px;
   max-width: 800px;
   font-family: sans-serif !important;
 }
