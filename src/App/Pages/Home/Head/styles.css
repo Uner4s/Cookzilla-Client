@@ -1,9 +1,9 @@
 :local(.container) {
   position: relative;
-  margin-bottom: 100px;
   margin-top: 55px;
-  height: 986px !important;
-  background-image: url('https://s3.amazonaws.com/orionsoft-tests/static/fweDg2TrbY_Fondo.png');
+  height: 660px !important;
+  background-image: url('https://s3.amazonaws.com/orionsoft-tests/static/wKeKwST6Uy_Fondo2.png');
+  background-repeat: no-repeat;
 }
 
 :local(.title) {

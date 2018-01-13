@@ -1,0 +1,27 @@
+:local(.container) {
+  width: 100%;
+  background-color: #5a5555;
+  height: 71px;
+}
+
+:local(.text) {
+  font-family: sans-serif !important;
+}
+
+:local(.title) {
+  padding-top: 6px;
+}
+
+:local(.icon) {
+  margin-top: 18.72px;
+}
+
+:local(.link) {
+  display: block;
+  position: relative;
+  top: 1px;
+}
+
+:local(.link):hover {
+  text-decoration: none;
+}
