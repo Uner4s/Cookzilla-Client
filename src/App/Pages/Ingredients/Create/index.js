@@ -24,7 +24,7 @@ export default class Create extends React.Component {
   }
 
   state = {}
-  async createIngredient () {
+  async createIngredient() {
     try {
       // Una vez que esta función se ejecute haz algo
       await this.props.createIngredient(this.state)
@@ -35,7 +35,7 @@ export default class Create extends React.Component {
     }
   }
 
-  render () {
+  render() {
     return (
       <div className={styles.container}>
         <h2>Create Ingredient</h2>

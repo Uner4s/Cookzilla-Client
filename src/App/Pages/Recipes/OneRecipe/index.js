@@ -27,7 +27,7 @@ export default class OneRecipe extends React.Component {
     oneRecipe: PropTypes.func
   }
 
-  renderIngredients () {
+  renderIngredients() {
     const { oneRecipe } = this.props
     return oneRecipe.ingredient.map(ingredient => {
       return (
@@ -38,7 +38,7 @@ export default class OneRecipe extends React.Component {
     })
   }
 
-  renderTools () {
+  renderTools() {
     const { oneRecipe } = this.props
     return oneRecipe.tool.map(tool => {
       return (
@@ -49,7 +49,7 @@ export default class OneRecipe extends React.Component {
     })
   }
 
-  renderRecipe () {
+  renderRecipe() {
     const { oneRecipe } = this.props
     return (
       <div key={oneRecipe._id} className={styles.recipe}>
@@ -75,7 +75,7 @@ export default class OneRecipe extends React.Component {
     )
   }
 
-  render () {
+  render() {
     return <div className={styles.container}>{this.renderRecipe()}</div>
   }
 }

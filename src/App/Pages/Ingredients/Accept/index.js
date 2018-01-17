@@ -45,7 +45,7 @@ export default class Accept extends React.Component {
   }
   // Render
   @autobind
-  async renderAccept (variable) {
+  async renderAccept(variable) {
     try {
       // Una vez que esta función se ejecute haz algo
       await this.props.stateIngredient({ _id: variable })
@@ -56,7 +56,7 @@ export default class Accept extends React.Component {
     }
   }
   @autobind
-  async renderReject (variable) {
+  async renderReject(variable) {
     try {
       // Una vez que esta función se ejecute haz algo
       await this.props.deleteIngredient({ _id: variable })
@@ -67,7 +67,7 @@ export default class Accept extends React.Component {
     }
   }
 
-  renderPending () {
+  renderPending() {
     // crear una función para luego llamarla y asi no llenar de codigo el return del render
     const { pendingIngredients } = this.props
     return pendingIngredients.map(ingredient => {
@@ -92,7 +92,7 @@ export default class Accept extends React.Component {
     })
   }
 
-  render () {
+  render() {
     return (
       <div className={styles.container}>
         <h2>Ingredients</h2>

@@ -46,7 +46,7 @@ export default class Accept extends React.Component {
 
   // Render
   @autobind
-  async renderAccept (variable) {
+  async renderAccept(variable) {
     try {
       // Una vez que esta función se ejecute haz algo
       await this.props.stateRecipe({ _id: variable })
@@ -57,7 +57,7 @@ export default class Accept extends React.Component {
     }
   }
   @autobind
-  async renderReject (variable) {
+  async renderReject(variable) {
     try {
       // Una vez que esta función se ejecute haz algo
       await this.props.deleteRecipe({ _id: variable })
@@ -68,7 +68,7 @@ export default class Accept extends React.Component {
     }
   }
 
-  renderPending () {
+  renderPending() {
     const { pendingRecipes } = this.props
     return pendingRecipes.map(recipe => {
       return (
@@ -105,7 +105,7 @@ export default class Accept extends React.Component {
     })
   }
 
-  render () {
+  render() {
     return (
       <div className={styles.container}>
         <h2>Pending recipes</h2>

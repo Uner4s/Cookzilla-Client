@@ -31,7 +31,7 @@ export default class Create extends React.Component {
 
   state = {}
   @autobind
-  async renderCreate () {
+  async renderCreate() {
     try {
       // Una vez que esta función se ejecute haz algo
       await this.props.addRecipe({ recipe: this.state })
@@ -42,7 +42,7 @@ export default class Create extends React.Component {
     }
   }
 
-  render () {
+  render() {
     return (
       <div className={styles.container}>
         <h2>Create recipe</h2>

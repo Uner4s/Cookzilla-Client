@@ -20,7 +20,7 @@ export default class Main extends React.Component {
     getAcceptedIngredients: PropTypes.func
   }
 
-  renderIngredients () {
+  renderIngredients() {
     const { getAcceptedIngredients } = this.props
     console.log({ getAcceptedIngredients })
     return getAcceptedIngredients.map(ingredient => {
@@ -36,7 +36,7 @@ export default class Main extends React.Component {
       )
     })
   }
-  render () {
+  render() {
     return (
       <div className={styles.container}>
         <h2>Accepted ingredients</h2>

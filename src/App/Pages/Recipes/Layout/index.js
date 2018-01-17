@@ -7,7 +7,7 @@ export default class Layout extends React.Component {
     children: PropTypes.node
   }
 
-  render () {
+  render() {
     return <div className={styles.container}>{this.props.children}</div>
   }
 }

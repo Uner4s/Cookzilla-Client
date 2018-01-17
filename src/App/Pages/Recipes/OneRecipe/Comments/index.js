@@ -39,7 +39,7 @@ export default class Comments extends React.Component {
   state = {}
 
   @autobind
-  async renderComment (variable) {
+  async renderComment(variable) {
     try {
       // Una vez que esta función se ejecute haz algo
       await this.props.createComment({
@@ -51,7 +51,7 @@ export default class Comments extends React.Component {
     }
   }
 
-  renderComments () {
+  renderComments() {
     const { commentRecipes } = this.props
     return commentRecipes.map(comment => {
       return (
@@ -65,7 +65,7 @@ export default class Comments extends React.Component {
     })
   }
 
-  render () {
+  render() {
     return (
       <div className={styles.container}>
         <Form

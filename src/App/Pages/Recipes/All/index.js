@@ -32,7 +32,7 @@ export default class All extends React.Component {
   }
 
   @autobind
-  async renderDelete (variable) {
+  async renderDelete(variable) {
     try {
       // Una vez que esta función se ejecute haz algo
       await this.props.deleteRecipe({ _id: variable })
@@ -43,7 +43,7 @@ export default class All extends React.Component {
     }
   }
 
-  renderRecipes () {
+  renderRecipes() {
     const { getAcceptedRecipes } = this.props
     return getAcceptedRecipes.map(recipe => {
       return (
@@ -68,7 +68,7 @@ export default class All extends React.Component {
     })
   }
 
-  render () {
+  render() {
     return (
       <div className={styles.container}>
         <h2>Accepted recipes</h2>

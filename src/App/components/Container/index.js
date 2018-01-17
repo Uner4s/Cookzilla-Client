@@ -30,7 +30,7 @@ export default class Container extends React.Component {
     size: 'big'
   }
 
-  getStyle () {
+  getStyle() {
     return {
       ...styles.base,
       ...styles[this.props.size],
@@ -38,7 +38,7 @@ export default class Container extends React.Component {
     }
   }
 
-  render () {
+  render() {
     return <div style={this.getStyle()}>{this.props.children}</div>
   }
 }

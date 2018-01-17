@@ -5,7 +5,6 @@ import Container from 'orionsoft-parts/lib/components/Container'
 import { Link } from 'react-router'
 import PropTypes from 'prop-types'
 
-
 export default class Line extends React.Component {
   static propTypes = {
     router: PropTypes.object
