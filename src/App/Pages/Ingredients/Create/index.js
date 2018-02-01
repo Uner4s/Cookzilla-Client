@@ -26,7 +26,6 @@ export default class Create extends React.Component {
   state = {}
   async createIngredient() {
     try {
-      // Una vez que esta función se ejecute haz algo
       await this.props.createIngredient(this.state)
       window.location.href = '../ingredients'
       window.alert('Ingredient added')
