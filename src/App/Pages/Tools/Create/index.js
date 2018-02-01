@@ -24,7 +24,6 @@ export default class Create extends React.Component {
   }
 
   state = {}
-  // función que en x momento debe esperar la respuesta de otra
   async createTool () {
     try {
       // Una vez que esta función se ejecute haz algo
