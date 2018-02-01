@@ -11,7 +11,6 @@ import requireRole from 'orionsoft-parts/lib/decorators/requireRole'
 import PropTypes from 'prop-types'
 
 @requireRole(['moderator'])
-// Pending Ingredients to Accept
 @withGraphQL(gql`
   query pendingIngredients {
     pendingIngredients {
@@ -20,7 +19,7 @@ import PropTypes from 'prop-types'
     }
   }
 `)
-// Accept Ingredient
+
 @withMessage
 @withMutation(gql`
   mutation stateIngredient($_id: ID!) {
@@ -29,7 +28,7 @@ import PropTypes from 'prop-types'
     }
   }
 `)
-// Reject Ingredient
+
 @withMessage
 @withMutation(gql`
   mutation deleteIngredient($_id: ID!) {
@@ -43,7 +42,7 @@ export default class Accept extends React.Component {
     showMessage: PropTypes.func,
     deleteIngredient: PropTypes.func
   }
-  // Render
+
   @autobind
   async renderAccept(variable) {
     try {
@@ -68,7 +67,6 @@ export default class Accept extends React.Component {
   }
 
   renderPending() {
-    // crear una función para luego llamarla y asi no llenar de codigo el return del render
     const { pendingIngredients } = this.props
     return pendingIngredients.map(ingredient => {
       return (
